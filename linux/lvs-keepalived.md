@@ -1,8 +1,7 @@
 ---
 layout: default
 title: LVS 与 Keepalived 高可用架构
-categories: [linux, lvs, keepalived]
-tags: [linux, lvs, keepalived]
+copyleft: true
 ---
 
 ##### LVS 与 Keepalived 高可用

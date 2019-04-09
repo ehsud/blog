@@ -1,5 +1,6 @@
 ---
-layout: home
+layout: default
+copyleft: false
 ---
 
 - [Archlinux 安装教程](/linux/archlinux-install-guide.html)
