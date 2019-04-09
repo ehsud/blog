@@ -6,7 +6,7 @@ copyleft: true
 
 you-get 是一个使用 python 开发的开源视频下载工具，目前支持大部分国内外的主流视频平台的视频下载，本文档基于 Windows 系统平台，讲解如何安装和使用 you-get 工具
 
-##### 安装方法
+### 安装方法
 
 1. 进入 https://www.python.org/downloads 官方网站，下载并安装 python
 
@@ -18,7 +18,7 @@ C:\> pip3 install you-get
 
 B站视频教程：[https://www.bilibili.com/video/av40055245](https://www.bilibili.com/video/av40055245)
 
-##### 基本使用方法
+### 基本使用方法
 
 - 例如下载B站这个视频 https://www.bilibili.com/video/av25487080
 
@@ -27,15 +27,15 @@ C:\> you-get https://www.bilibili.com/video/av25487080
 ```  
 
 
-##### 高级使用实例
+### 高级使用实例
 
-- 使用 `-i` 参数可以列出视频有哪些清晰度的格式
+* 使用 `-i` 参数可以列出视频有哪些清晰度的格式
 
 ```
 C:\> you-get -i https://www.bilibili.com/video/av25487080
 ```  
 
-- 假如视频需要密码才能访问，可使用 `-P` 参数来指定密码
+* 假如视频需要密码才能访问，可使用 `-P` 参数来指定密码
 
 ```
 C:\> you-get -P 123456 http://v.youku.com/v_show/id_XMzg1NTk1NzI2OA==.html
@@ -59,7 +59,7 @@ C:\> you-get -x 127.0.0.1:80 https://www.youtube.com/watch?v=0xf74982a
 C:\> you-get -s 127.0.0.1:233 https://www.youtube.com/watch?v=0xf74982a
 ```
 
-##### 如何下载那些需要登录才能下载的视频
+### 如何下载那些需要登录才能下载的视频
 
 1. 首先需要使用 firefox 火狐浏览器事先登录视频网站平台账号  
 
