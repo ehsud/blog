@@ -1,0 +1,31 @@
+(package-initialize)
+
+(add-to-list 'package-archives
+             '("melpa" . "http://stable.melpa.org/packages/") t)
+
+(set-locale-environment "UTF-8")
+(set-language-environment 'UTF-8)
+(global-visual-line-mode 1)
+
+(blink-cursor-mode -1)
+(setq-default cursor-type 'box)
+(set-cursor-color "red")
+(setq-default make-backup-files nil)
+
+;; Hot Key
+(global-set-key [f4] 'kill-this-buffer)
+(global-set-key [f5] 'goto-line)
+(global-set-key [f7] 'indent-buffer)
+(global-set-key [f8] 'compile)
+(global-set-key [f11] 'toggle-frame-fullscreen)
+(global-set-key (kbd "C-t") 'set-mark-command)
+
+(setq backup-inhibited t)
+(setq auto-save-default nil)
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; C language
+(setq default-tab-width 4)
+(setq-default indent-tabs-mode nil)
+(setq c-default-style "linux")
+(setq c-basic-offset 4)

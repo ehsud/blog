@@ -1,0 +1,177 @@
+;; Emacs 包管理器初始化
+(package-initialize)
+
+;; Emacs 软件包仓库
+(add-to-list 'package-archives
+             '("melpa" . "http://stable.melpa.org/packages/") t)
+
+;; 设置编辑器标题
+(set-frame-name "emacs")
+
+;; 设置本地语言环境编码
+(set-locale-environment "UTF-8")
+(set-language-environment 'UTF-8)
+
+;; 设置禁用启动画面
+(setq inhibit-startup-message t)
+(setq show-paren-style 'parenthesis)
+
+;; 设置启动时窗口的高度宽度和工具栏菜单显示方式
+(setq default-frame-alist '((height . 35) (width . 130) (menu-bar-lines . 20) (tool-bar-lines . 0)))
+
+;; 设置默认字体
+(set-default-font "-outline-Consolas-normal-normal-normal-mono-14-*-*-*-c-*-iso8859-1")
+
+;; 加载主题样式
+(load-theme 'wombat t)
+
+;; 最大行字符长度
+(setq default-fill-column 80)
+
+;; 禁用滚动条
+(scroll-bar-mode -1)
+
+;; 禁用换行符号
+(global-visual-line-mode 1)
+
+;; 设置emacs自动加载路径
+(add-to-list 'load-path "~/.emacs.d/lisp")
+
+;; 开启显示行号
+(require 'linum)
+(global-linum-mode t)
+
+;; 设置当前行高亮样式
+;;(require 'hl-line)
+;;(global-hl-line-mode t)
+
+;; 光标样式
+(blink-cursor-mode -1)
+
+;; 光标样式设置
+(setq-default cursor-type 'box)
+
+;; 鼠标自动离开
+(mouse-avoidance-mode 'animate)
+
+;; 滚当条滚动时吸附边距设置
+(setq scroll-margin 3
+	  scroll-conservatively 10000)
+
+;; 禁用警告音
+(setq visible-bell t)
+
+;; 光标颜色设置
+(set-cursor-color "red")
+
+;; 禁用文件自动备份
+(setq-default make-backup-files nil)
+
+;; 代码自动格式化
+(defun indent-buffer ()
+  "Indent the whole buffer."
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))
+
+
+;; 快捷键设置
+(global-set-key [f4] 'kill-this-buffer)
+(global-set-key [f5] 'goto-line)
+(global-set-key [f7] 'indent-buffer)
+(global-set-key [f8] 'compile)
+(global-set-key [f11] 'toggle-frame-fullscreen)
+(global-set-key (kbd "C-t") 'set-mark-command)
+
+(setq backup-inhibited t)
+
+;; 关闭文件自动保存
+(setq auto-save-default nil)
+
+;; yes/no 简化提示
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;;(setq minibuffer-max-depth nil)
+(setq scroll-margin 1
+	  scroll-conservatively 100)
+
+;; 状态条设置
+(require 'powerline)
+(powerline-default-theme)
+
+;; C语言模式
+(setq default-tab-width 4)
+(setq-default indent-tabs-mode nil)
+(setq c-default-style "linux")
+(setq c-basic-offset 4)
+
+;; PHP 模式
+(autoload 'php-mode "php-mode" "Major mode for editing php code." t)
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+
+;; Markdown 模式
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;; buffer平滑滚动
+(defun smooth-scroll (increment)
+  (scroll-up increment) (sit-for 0.05)
+  (scroll-up increment) (sit-for 0.02)
+  (scroll-up increment) (sit-for 0.02)
+  (scroll-up increment) (sit-for 0.05)
+  (scroll-up increment) (sit-for 0.06)
+  (scroll-up increment))
+
+;; 加载自动提示插件
+(add-to-list 'load-path "~/.emacs.d/lisp/auto-complete")
+(require 'auto-complete)
+(require 'auto-complete-config)
+
+;; 加载关键字词典
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/auto-complete/dict")
+(ac-config-default)
+
+;; 最短提示长度
+(setq ac-auto-start 3)
+
+;; 忽略大小写
+(setq ac-ignore-case t)
+
+;; 开启 fuzzy
+(setq ac-fuzzy-enable t)
+
+;; 关键字选择快捷键
+(setq ac-use-menu-map t)
+(define-key ac-menu-map "\C-n" 'ac-next)
+(define-key ac-menu-map "\C-p" 'ac-previous)
+
+;; 自动提示列表显示速度
+(setq ac-auto-show-menu 0.5)
+
+;; 自动提示框颜色设置
+(set-face-background 'ac-candidate-face "darkgray")
+(set-face-underline 'ac-candidate-face "gray")
+(set-face-background 'ac-selection-face "steelblue")
+
+;; org mode
+(setq org-html-validation-link nil)
+(setq org-html-doctype "html5")
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(markdown-command "/d/local/bin/multimarkdown.exe")
+ '(package-selected-packages (quote (gnugo))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -1,0 +1,17 @@
+
+body {
+    background-color: #ffffff;
+}
+
+pre {
+    padding: 5px;
+}
+
+code {
+    background-color: #f6f8fa;
+}
+
+pre code {
+    background-color: #f6f8fa;    
+}
+
