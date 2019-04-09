@@ -29,13 +29,13 @@ C:\> you-get https://www.bilibili.com/video/av25487080
 
 ### 高级使用实例
 
-* 使用 `-i` 参数可以列出视频有哪些清晰度的格式
+- 使用 `-i` 参数可以列出视频有哪些清晰度的格式
 
 ```
 C:\> you-get -i https://www.bilibili.com/video/av25487080
 ```  
 
-* 假如视频需要密码才能访问，可使用 `-P` 参数来指定密码
+- 假如视频需要密码才能访问，可使用 `-P` 参数来指定密码
 
 ```
 C:\> you-get -P 123456 http://v.youku.com/v_show/id_XMzg1NTk1NzI2OA==.html
