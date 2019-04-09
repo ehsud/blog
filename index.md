@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: home
 ---
 
 - [Archlinux 安装教程](/linux/archlinux-install-guide.html)
