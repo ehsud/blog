@@ -3,6 +3,10 @@ body {
     background-color: #ffffff;
 }
 
+img {
+    width: 100%;
+}
+
 pre[class="highlight"] {
     padding: .5rem!important;
     border-radius: .3rem!important;
