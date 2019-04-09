@@ -1,10 +1,3 @@
 ---
-layout: default
-title: typefo
+layout: post
 ---
-
-新博客网站开发中
-
-```c
-hello world
-```
