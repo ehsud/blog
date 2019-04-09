@@ -1,6 +1,7 @@
 ---
 layout: default
 title: rabbitmq 安装及基本配置
+copyleft: true
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: PostgreSQL 性能优化
+copyleft: true
 ---
 
 **配置文件参数单位说明**

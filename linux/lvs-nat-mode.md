@@ -1,6 +1,7 @@
 ---
 layout: default
 title: LVS NAT 工作模式
+copyleft: true
 ---
 
 ##### LVS NAT 工作模式

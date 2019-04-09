@@ -1,6 +1,7 @@
 ---
 layout: default
 title: sed 命令使用教程
+copyleft: true
 ---
 
 ##### sed 命令的使用

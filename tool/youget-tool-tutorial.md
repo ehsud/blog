@@ -1,6 +1,7 @@
 ---
 layout: default
 title: you-get 工具安装及使用教程
+copyleft: true
 ---
 
 you-get 是一个使用 python 开发的开源视频下载工具，目前支持大部分国内外的主流视频平台的视频下载，本文档基于 Windows 系统平台，讲解如何安装和使用 you-get 工具

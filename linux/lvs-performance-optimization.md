@@ -1,6 +1,7 @@
 ---
 layout: default
 title: LVS 性能优化
+copyleft: true
 ---
 
 ##### LVS 性能优化

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: sort 命令使用教程
+copyleft: true
 ---
 
 ##### sort 命令使用详解

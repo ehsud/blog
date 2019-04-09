@@ -1,6 +1,7 @@
 ---
 layout: default
 title: rabbitmq 集群配置指南
+copyleft: true
 ---
 
 ##### RabbitMQ 集群环境配置

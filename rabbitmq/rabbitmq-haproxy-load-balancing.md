@@ -1,6 +1,7 @@
 ---
 layout: default
 title: rabbitmq 与 haproxy 负载均衡配置
+copyleft: true
 ---
 
 ##### RabbitMQ 与 HAProxy 负载均衡

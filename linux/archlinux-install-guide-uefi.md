@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Archlinux 安装教程 UEFI
+copyleft: true
 ---
 
 ##### ArchLinux UEFI 安装教程 

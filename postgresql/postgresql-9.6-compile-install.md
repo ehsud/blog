@@ -1,6 +1,7 @@
 ---
 layout: default
 title: postgresql 9.6 编译安装及配置
+copyleft: true
 ---
 
 ##### PostgreSQL 9.6 编译安装

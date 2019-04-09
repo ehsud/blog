@@ -1,6 +1,7 @@
 ---
 layout: default
 title: LVS DR 工作模式
+copyleft: true
 ---
 
 ##### LVS DR 模式

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Archlinux 安装教程
+copyleft: true
 ---
 
 ##### ArchLinux 安装教程

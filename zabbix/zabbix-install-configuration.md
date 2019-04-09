@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Zabbix 安装及配置
+copyleft: true
 ---
 
 Zabbix 是一种分布式服务监控系统，核心系统由 C语言编写。主要有服务器端 (Server)，代理服务器端 (Proxy)，被监控端 (Agent) 组成。

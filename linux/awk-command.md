@@ -1,6 +1,7 @@
 ---
 layout: default
 title: awk 命令使用教程
+copyleft: true
 ---
 
 ##### awk 命令的使用

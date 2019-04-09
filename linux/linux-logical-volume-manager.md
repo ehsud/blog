@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Linux LVM 磁盘逻辑卷
+copyleft: true
 ---
 
 ##### LVM 磁盘逻辑卷

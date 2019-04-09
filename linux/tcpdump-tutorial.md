@@ -1,6 +1,7 @@
 ---
 layout: default
 title: tcpdump 工具使用教程
+copyleft: true
 ---
 
 tcpdump 是一个实用的网络数据包分析工具，能够截获操作系统中的各种网络数据包。

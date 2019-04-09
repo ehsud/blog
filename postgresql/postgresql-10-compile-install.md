@@ -1,6 +1,7 @@
 ---
 layout: default
 title: postgresql 10 编译安装及配置
+copyleft: true
 ---
 
 ##### PostgreSQL 10 编译安装

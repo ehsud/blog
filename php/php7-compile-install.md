@@ -1,6 +1,7 @@
 ---
 layout: default
-title: php7 compile install
+title: PHP 7 编译安装
+copyleft: true
 ---
 
 ##### PHP 7 编译安装

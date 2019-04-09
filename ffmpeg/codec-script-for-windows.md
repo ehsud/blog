@@ -1,6 +1,7 @@
 ---
 layout: default
 title: ffmpeg 一键自动转码脚本
+copyleft: true
 ---
 
 ##### ffmpeg 快速转码脚本

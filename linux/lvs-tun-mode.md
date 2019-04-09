@@ -1,6 +1,7 @@
 ---
 layout: default
 title: LVS TUN 工作模式
+copyleft: true
 ---
 
 ##### LVS TUN 模式
