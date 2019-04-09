@@ -6,7 +6,7 @@ copyleft: true
 
 ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行版，所有的基础系统和组件都需要自行定制和安装，官方并没有提供一个开箱即用的方案，ArchLinux 的信仰就是简单和轻量级。笔者也是一个忠实的 ArchLinux 信仰者。
 
-**首先准备硬盘分区**
+### 首先准备硬盘分区
 
 首先给硬盘进行分区，可以使用 cfdisk、parted 等工具来进行，当然这里使用 parted 工具 
 
@@ -31,7 +31,7 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
     $ mkdir /mnt/boot
     $ mount /dev/sda1 /mnt/boot
 
-**使用 pacstrap 来安装 ArchLinux**
+### 使用 pacstrap 来安装 ArchLinux
 
     $ pacstrap -i /mnt base base-devel
 
@@ -100,7 +100,9 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
 
 到此为止，一台 Archlinux 服务器就安装成功了。当然如果你需要安装桌面环境来使用，你只需要完成下面这些组件的安装即可
 
-**安装声音驱动**
+### 安装桌面环境
+
+先安装 alsa、pulseaudio 声音驱动
 
     $ pacman -Sy alsa-utils pulseaudio pulseaudio-alsa
     $ alsamixer
