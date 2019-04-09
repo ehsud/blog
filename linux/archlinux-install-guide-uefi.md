@@ -10,7 +10,7 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
 
 ##### 开始 ArchLinux 的安装
 
-**使用 parted 工具进行分区 **
+**使用 parted 工具进行分区**
 
 ```
     $ parted /dev/sda
