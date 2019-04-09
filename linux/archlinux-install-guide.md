@@ -2,6 +2,8 @@
 layout: default
 title: Archlinux 安装教程
 description: 快速安装一个 archlinux 服务器系统与桌面环境
+category: linux
+tags: [linux, archlinux, 安装教程]
 copyleft: true
 ---
 
