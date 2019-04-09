@@ -3,15 +3,8 @@ body {
     background-color: #ffffff;
 }
 
-pre {
-    padding: 5px;
+pre[class="highlight"] {
+    padding: .5rem!important;
+    border-radius: .3rem!important;
+    background-color: #f8f9fa!important;
 }
-
-code {
-    background-color: #f6f8fa;
-}
-
-pre code {
-    background-color: #f6f8fa;    
-}
-
