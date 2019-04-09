@@ -4,10 +4,11 @@ title: Archlinux 安装教程
 copyleft: true
 ---
 
-
 ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行版，所有的基础系统和组件都需要自行定制和安装，官方并没有提供一个开箱即用的方案，ArchLinux 的信仰就是简单和轻量级。笔者也是一个忠实的 ArchLinux 信仰者。
 
 **使用 parted 工具进行分区**
+
+首先给硬盘进行分区，可以使用 cfdisk、parted 等工具来进行，当然这里使用 parted 工具 
 
     $ parted /dev/sda
     $ mkpart primary ext4 0 1024MiB
@@ -15,7 +16,7 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
     $ set 1 boot on
     $ quit
 
-> 如果使用的是 SSD 硬盘，建议使用下面的命令，来创建分区时使用分区对齐
+如果使用的是 SSD 硬盘，建议使用下面的命令，来创建分区时使用分区对齐。使用分区对齐能优化 SSD 硬盘的读写性能
 
     $ mkpart primary ext4 0% 1024MiB
 
@@ -30,7 +31,7 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
     $ mkdir /mnt/boot
     $ mount /dev/sda1 /mnt/boot
 
-**下载并安装 ArchLinux**
+**使用 pacstrap 来安装 ArchLinux**
 
     $ pacstrap -i /mnt base base-devel
 
@@ -60,7 +61,7 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
 
 **设置时区**
 
-    $ ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    $ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 或者修改 /etc/timezone 配置文件
 
@@ -74,7 +75,7 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
 
     $ mkinitcpio -p linux
 
-**配置开启 pacman 源** /etc/pacman.conf
+**开启 pacman 源** /etc/pacman.conf
 
     [multilib]
     Include = /etc/pacman.d/mirrorlist
@@ -96,6 +97,8 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
 重新生成配置文件
 
     $grub-mkconfig -o /boot/grub/grub.cfg
+
+到此为止，一台 Archlinux 服务器就安装成功了。当然如果你需要安装桌面环境来使用，你只需要完成下面这些组件的安装即可
 
 **安装声音驱动**
 
