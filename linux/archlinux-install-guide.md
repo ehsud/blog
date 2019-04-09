@@ -18,6 +18,10 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
     $ set 1 boot on
     $ quit
 
+> 如果使用的是 SSD 硬盘，建议使用下面的命令，来创建分区时使用分区对齐
+
+    $ mkpart primary ext4 0% 1024MiB
+
 **格式化分区**
 
     $ mkfs.ext4 /dev/sda1
