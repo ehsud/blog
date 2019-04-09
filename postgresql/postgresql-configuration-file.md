@@ -1,6 +1,7 @@
 ---
 layout: default
 title: PostgreSQL 的 postgresql.conf 配置文件详解
+description: 关于 postgresql 的 postgresql.conf 配置文件详解
 copyleft: true
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: you-get 工具安装及使用教程
+description: you-get 工具的详细使用教程
 copyleft: true
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: awk 命令使用教程
+description: 一个简单易懂的 awk 命令工具使用教程
 copyleft: true
 ---
 

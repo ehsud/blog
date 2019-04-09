@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Zabbix Server 配置文件详解
+description: zabbix server 服务器配置文件详解
 copyleft: true
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Zabbix 安装及配置
+description: zabbix 的基本安装和配置教程
 copyleft: true
 ---
 

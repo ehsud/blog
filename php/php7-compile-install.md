@@ -1,6 +1,7 @@
 ---
 layout: default
 title: PHP 7 编译安装
+description: 在 CentOS 7 环境下编译安装 PHP 7
 copyleft: true
 ---
 

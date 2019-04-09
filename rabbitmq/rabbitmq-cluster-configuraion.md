@@ -1,6 +1,7 @@
 ---
 layout: default
 title: rabbitmq 集群配置指南
+description: 讲解如何配置 rabbitmq 集群方案
 copyleft: true
 ---
 
