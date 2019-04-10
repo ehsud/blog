@@ -17,6 +17,10 @@ body {
     margin-bottom: 1rem;
 }
 
+li {
+    list-style-type: circle;
+}
+
 pre[class="highlight"] {
     padding: .5rem!important;
     border-radius: .3rem!important;
