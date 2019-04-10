@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: LVS 与 Keepalived 高可用架构
 description: lvs 与 keepalived 构建高可用双机热备方案
 copyleft: true
