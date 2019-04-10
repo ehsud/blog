@@ -17,6 +17,12 @@ body {
     margin-bottom: 1rem;
 }
 
+ul {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 li {
     list-style-type: circle;
 }
