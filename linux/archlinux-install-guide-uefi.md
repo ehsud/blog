@@ -13,14 +13,13 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
 
 **使用 parted 工具进行分区**
 
-```
     $ parted /dev/sda
     $ mklabel gpt
     $ mkpart ESP fat32 1MiB 513MiB
     $ mkpart primary ext4 513MiB 100%
     $ set 1 boot on
     $ quit
-```
+
 
 **挂载分区**
 
