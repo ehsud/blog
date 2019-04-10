@@ -17,6 +17,10 @@ body {
     margin-bottom: 1rem;
 }
 
+i {
+    margin-right: .25rem!important;
+}
+
 ul {
     padding-inline-start: 10px;
 }
