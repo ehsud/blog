@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="{{ site.lang }}">
 <head>
     <meta charset="utf-8">
-    {% seo %}
+    <title>{{ page.title }} | {{ site.title }}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ page.description }}" />
+    <link rel="canonical" href="{{ page.url }}" />
+    <meta property="og:title" content="{{ page.title }}" />
+    <meta property="og:locale" content="{{ site.lang }}" />
+    <meta property="og:description" content="{{ page.description }}" />
+    <meta property="og:url" content="{{ page.title }}" />
+    <meta property="og:site_name" content="{{ site.title }}" />
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <script type="application/ld+json">
+    {"@type":"WebPage","headline":"{{ page.title }}","url":"{{ page.url }}","description":"{{ page.description }}","@context":"http://schema.org"}
+    </script>
 </head>
 <body class="d-flex flex-column h-100">
     <div class="container-fluid bg-dark">
