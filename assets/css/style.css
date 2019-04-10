@@ -31,14 +31,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
 }
 
-.content p {
-    text-indent: 1.2rem;
-}
-
-.content p > code[class="highlighter-rouge"] {
-    padding-left: -1.2rem;
-}
-
 i {
     margin-right: .25rem!important;
 }
