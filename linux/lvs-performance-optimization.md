@@ -2,7 +2,6 @@
 layout: post
 title: LVS 性能优化
 description: 关于 lvs 的一些性能优化技巧
-copyleft: true
 ---
 
 ##### LVS 性能优化

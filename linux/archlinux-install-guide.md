@@ -2,9 +2,8 @@
 layout: post
 title: Archlinux 安装教程
 description: 快速安装一个 archlinux 服务器系统与桌面环境
-category: linux
-tags: [linux, archlinux, 安装教程]
-copyleft: true
+category: [linux]
+tags: [linux, archlinux,]
 ---
 
 ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行版，所有的基础系统和组件都需要自行定制和安装，官方并没有提供一个开箱即用的方案，ArchLinux 的信仰就是简单和轻量级。笔者也是一个忠实的 ArchLinux 信仰者。

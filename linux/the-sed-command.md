@@ -2,7 +2,6 @@
 layout: post
 title: sed 命令使用教程
 description: 一个 sed 命令工具使用教程
-copyleft: true
 ---
 
 ##### sed 命令的使用

@@ -2,7 +2,6 @@
 layout: post
 title: PostgreSQL 性能优化
 description: 关于 postgresql 的一些性能优化技巧
-copyleft: true
 ---
 
 **配置文件参数单位说明**

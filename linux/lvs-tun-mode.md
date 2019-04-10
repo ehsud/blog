@@ -2,7 +2,6 @@
 layout: post
 title: LVS TUN 工作模式
 description: lvs 的 tun 工作模式
-copyleft: true
 ---
 
 ##### LVS TUN 模式

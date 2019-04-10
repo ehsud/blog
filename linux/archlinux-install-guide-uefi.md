@@ -2,7 +2,6 @@
 layout: post
 title: Archlinux 安装教程 UEFI
 description: 介绍如何在 UEFI 模式下安装 archlinux 系统
-copyleft: true
 ---
 
 ##### ArchLinux UEFI 安装教程 

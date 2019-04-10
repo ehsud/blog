@@ -2,7 +2,6 @@
 layout: post
 title: 如何使用 Let's Encrypt 域名 SSL 证书
 description: 教你如何使用 Let's Encrypt 的免费 SSL 证书给网站启用 https
-copyleft: true
 ---
 
 Let's Encrypt 是一个于 2015 年成立的数字证书认证机构，他们主要为网站提供免费的SSL/TLS证书。旨在简化创建和安装证书的流程，使更多的人使用安全的互联网服务。 

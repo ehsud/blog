@@ -4,7 +4,6 @@ title: ffmpeg 一键自动转码脚本
 description: 介绍如何便携 ffmpeg 一键自动处理脚本
 categories: [ffmpeg]
 tags: [ffmpeg, 转码]
-copyleft: true
 ---
 
 ##### ffmpeg 快速转码脚本

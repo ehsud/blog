@@ -2,7 +2,6 @@
 layout: post
 title: sort 命令使用教程
 description: sort 命令行工具使用教程
-copyleft: true
 ---
 
 ##### sort 命令使用详解
