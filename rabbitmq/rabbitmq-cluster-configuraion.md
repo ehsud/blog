@@ -6,9 +6,9 @@ description: 讲解如何配置 rabbitmq 集群方案
 
 #### 准备 Erlang Cookie
 
-1) Cookie 文件位置 /var/lib/rabbitmq/.erlang.cookie 或者当前用户 HOME 目录下 .erlang.cookie
-2) 文件 .erlang.cookie 权限必须是 400
-3) 将 .erlang.cookie 文件复制到集群所有节点上的相同位置
+- 1) Cookie 文件位置 /var/lib/rabbitmq/.erlang.cookie 或者当前用户 HOME 目录下 .erlang.cookie
+- 2) 文件 .erlang.cookie 权限必须是 400
+- 3) 将 .erlang.cookie 文件复制到集群所有节点上的相同位置
    
 #### 集群环境信息
 
