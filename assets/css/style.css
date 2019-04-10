@@ -22,7 +22,7 @@ ul {
 }
 
 li {
-    list-style-type: circle;
+    list-style-type: none;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
