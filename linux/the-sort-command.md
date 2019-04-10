@@ -4,16 +4,16 @@ title: sort 命令使用教程
 description: sort 命令行工具使用教程
 ---
 
-##### sort 命令使用详解
+#### sort 命令使用详解
 
 sort 命令会将文件的每一行当作一个处理对象，然后将他们从起始字符到末尾依次进行 ASCII 码进行比较，最后按默认升序排列输出
 
-##### sort 排序命令的基本用法
+#### sort 排序命令的基本用法
 
     $ sort [option] file
     $ sort [option] --files0-from=F
 
-##### sort 选项 OPTION 参数详解
+#### sort 选项 OPTION 参数详解
 
 **-b, --ignore-leading-blanks**
 
@@ -93,7 +93,7 @@ read input from the files specified by NUL-terminated names in file F; If F is -
 
 **-k, --key=KEYDEF**
 
-这个选项通常和 -t 选项配合使用，表示某一个字段域, 每个字段域的默认排序规则为升序排序，它的基本参数格式如下:
+这个选项通常和 `-t` 选项配合使用，表示某一个字段域, 每个字段域的默认排序规则为升序排序，它的基本参数格式如下:
 
     sort -k FStart[.CStart][OPTS],FEnd[.CEnd][OPTS]
 
@@ -117,7 +117,7 @@ read input from the files specified by NUL-terminated names in file F; If F is -
     twitter 100 4500
     apple   200 8000
 
-##### sed 参数的基本用法和规则
+#### sed 参数的基本用法和规则
 
 以空格为分隔符，第1个字段域的第1个字符开始，到整行内容的最后一个字符结束
 
@@ -150,7 +150,7 @@ read input from the files specified by NUL-terminated names in file F; If F is -
     twitter 100 4500
     yahoo   180 5500
 
-参数 -t 表示以空格为分隔符对 company.txt 文件中的每一行的内容进行分割，然后 -k 表示以分割后的第一个字段的内容也就是公司名称，来进行排序,默认以字母升序的顺序来进行排序
+参数 `-t` 表示以空格为分隔符对 company.txt 文件中的每一行的内容进行分割，然后 `-k`表示以分割后的第一个字段的内容也就是公司名称，来进行排序,默认以字母升序的顺序来进行排序
 
 示例:以公司人数升序进行排序，如果人数相同的再按照工资来进行升序排序
 
@@ -163,7 +163,7 @@ read input from the files specified by NUL-terminated names in file F; If F is -
     yahoo   180 5500
     apple   200 8000
 
-以空格作为分隔符, -n 参数表示将字段内容当作纯数字，可以设定多个 -k 字段来组合排序，对所有公司的人数来排序，如果人数相同的，则按平均工资来排序
+以空格作为分隔符, `-n` 参数表示将字段内容当作纯数字，可以设定多个 `-k` 字段来组合排序，对所有公司的人数来排序，如果人数相同的，则按平均工资来排序
 
 示例：以公司员工数升序排序，如果人数相同的再按照工资的降序来排序
 
@@ -176,7 +176,7 @@ read input from the files specified by NUL-terminated names in file F; If F is -
     yahoo   180 5500
     apple   200 8000
 
-这个和上面一例相同，不同的是在第3个字段域也就是工资那一列加上了一个 r 选项，表示反向降序排列
+这个和上面一例相同，不同的是在第3个字段域也就是工资那一列加上了一个 `r` 选项，表示反向降序排列
 
 示例:将公司的人数按照升序排序，如果人数相同的再按照工资的降序来进行排序
 
@@ -189,9 +189,9 @@ read input from the files specified by NUL-terminated names in file F; If F is -
     yahoo   180 5500
     apple   200 8000
 
-第一个 -k 参数表示按照人数默认的升序进行排序，如果有人数相同的再按照第二个 -k 参数来对工资的降序来进行排序
+第一个 `-k` 参数表示按照人数默认的升序进行排序，如果有人数相同的再按照第二个 `-k` 参数来对工资的降序来进行排序
 
-第二个 -k 参数后面加了一个 r 表示反向排序，因为 sort 默认是升序排序，参数 r 就表示这个字段用降序排序
+第二个 `-k` 参数后面加了一个 `r` 表示反向排序，因为 sort 默认是升序排序，参数 `r` 就表示这个字段用降序排序
 
     $ sort -t ' ' -k 2n -k 3rn company.txt
     twitter 100 4500
@@ -202,7 +202,7 @@ read input from the files specified by NUL-terminated names in file F; If F is -
     yahoo   180 5500
     apple   200 8000
 
--k 参数后面也可以加入 n 参数，表示将这个字段的内容当作纯数字来处理
+`-k` 参数后面也可以加入 n 参数，表示将这个字段的内容当作纯数字来处理
 
 示例：带有 OPTS 可选参数的一些用法
 
@@ -248,7 +248,7 @@ change the number of sorts run concurrently to N
 
 **-u, --unique**
 
-过滤合并相同内容的行，只显示一行，将某一个字段域有相同内容的行进行合并，只保留一行，然后删除其他行，默认比较整行内容是否相同，如果和 -k 参数一起使用，则按照 -k 参数指定的字段域进行比较是否相同，如果有多个 -k 参数字段域，则所有字段域相同才会进行合并
+过滤合并相同内容的行，只显示一行，将某一个字段域有相同内容的行进行合并，只保留一行，然后删除其他行，默认比较整行内容是否相同，如果和 `-k` 参数一起使用，则按照 `-k` 参数指定的字段域进行比较是否相同，如果有多个 `-k` 参数字段域，则所有字段域相同才会进行合并
 
     $ cat company.txt
     yahoo   180 5500
@@ -271,7 +271,7 @@ change the number of sorts run concurrently to N
     twitter 100 4500
     yahoo   180 5500
 
-将 company.txt 文件中两个 google 名字相同的公司合并成了一行，此时的 -u 参数过滤重复行是根据 -k 参数指定的字段与来比较的
+将 company.txt 文件中两个 google 名字相同的公司合并成了一行，此时的 `-u` 参数过滤重复行是根据 `-k` 参数指定的字段与来比较的
 
 **-z, --zero-terminated**
 

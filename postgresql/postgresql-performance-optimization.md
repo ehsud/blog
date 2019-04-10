@@ -4,12 +4,12 @@ title: PostgreSQL 性能优化
 description: 关于 postgresql 的一些性能优化技巧
 ---
 
-**配置文件参数单位说明**
+#### 配置文件参数单位说明
 
     内存单位：    kB = 千字节   MB = 兆字节   GB = 千兆字节  TB = 兆兆字节
     时间单位：    ms = 毫秒     s =  秒      min = 分钟     h = 小时   d = 天
 
-##### 内存相关优化
+#### 内存相关优化
 
 **shared_buffers = 128MB**
 
