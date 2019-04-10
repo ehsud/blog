@@ -64,7 +64,7 @@ $ acme.sh --renew --dns -d example.com --yes-I-know-dns-manual-mode-enough-go-ah
 
 如果以上命令执行完没有错误提示，就说明证书已申请成功！下面就开始为 Nginx 安装证书。
 
-### 开始安装 SSL 证书
+### 3. 开始安装 SSL 证书
 
 需要创建一个证书存放目录，比如 /etc/cert，然后将证书安装到其中即可
 
@@ -75,7 +75,7 @@ $ acme.sh --install-cert -d example.com --key-file /etc/cert/example.key --fullc
 
 这样整个证书申请到安装就完成了，接下来就是配置 Nginx 使用 SSL 证书
 
-### 如何给 Nginx 配置使用证书
+### 4. 如何给 Nginx 配置使用证书
 
 只需要在 nginx.conf 配置文件中的 http 段，添加以下内容即可
 
@@ -99,7 +99,7 @@ http {
 }
 ```
 
-### 如何给泛域名申请  SSL 域名证书
+### 5. 如何给泛域名申请  SSL 域名证书
 
 泛域名指的是，如果你想给同一根域名下的多个子域名申请证书，可这样做
 
