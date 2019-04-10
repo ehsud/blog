@@ -4,11 +4,11 @@ title: Archlinux 安装教程 UEFI
 description: 介绍如何在 UEFI 模式下安装 archlinux 系统
 ---
 
-##### ArchLinux UEFI 安装教程 
+#### ArchLinux UEFI 安装教程 
 
 ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行版，所有的基础系统和组件都需要自行定制和安装，官方并没有提供一个开箱即用的方案，ArchLinux 的信仰就是简单和轻量级。笔者也是一个忠实的 ArchLinux 信仰者。
 
-##### 开始 ArchLinux 的安装
+#### 开始 ArchLinux 的安装
 
 **使用 parted 工具进行分区**
 

@@ -4,11 +4,11 @@ title: LVS 性能优化
 description: 关于 lvs 的一些性能优化技巧
 ---
 
-##### LVS 性能优化
+#### LVS 性能优化
 
 LVS 全称 "Linux Virtual Server" 即 Linux 虚拟服务器，由前阿里云CTO章文嵩开发，已在国内外大型互联网公司广泛使用。LVS 主要用于 LB 负载均衡集群(load balance)。LVS 是基于 Linux 内核以模块的方式进行工作。LVS 的工作原理是，接受客户端请求，然后进行调度算法处理，将请求分发给后端服务器(Real Server)进行业务处理。LVS 本身只做流量转发，不涉及到业务处理，所以 LVS 是一种相对高效的软件负载均衡解决方案。
    
-##### LVS术语和概念
+#### LVS术语和概念
    
 - `DS` "Director Server" 也就是前端 LVS 负载均衡服务器
 - `RS` "Real Server" 指的是后端真实的工作服务器
@@ -17,7 +17,7 @@ LVS 全称 "Linux Virtual Server" 即 Linux 虚拟服务器，由前阿里云CTO
 - `RIP` "Real Server IP" 后端 real server 真实服务器 IP 地址
 - `CIP` "Client IP" 指的是客户端 IP 地址
 
-##### LVS工作模式
+#### LVS工作模式
 
 - NAT 模式  
      
@@ -35,7 +35,7 @@ DR模式下通过改写请求报文的MAC地址，将请求发送到真实服务
 
 LVS 的 Full-Nat 工作模式是淘宝开源的一个新的工作模式，需要编译 Linux 内核安装补丁。
 
-##### LVS调度算法
+#### LVS调度算法
    
 - 轮询（Round Robin）  
 
@@ -77,7 +77,7 @@ LVS 的 Full-Nat 工作模式是淘宝开源的一个新的工作模式，需要
 
 改进版的 sed 算法，无需队列，如果有台 realserver 的连接数等于 0 就直接分配过去，不需要再进行 sed 运算。
 
-##### LVS命令行工具
+#### LVS命令行工具
 
 加载 ip_vs 内核模块
    
@@ -140,7 +140,7 @@ LVS 的 Full-Nat 工作模式是淘宝开源的一个新的工作模式，需要
     --thresholds 显示相关阀值信息
     --persistent-conn 显示持久连接信息
 
-##### LVS相关问题与性能优化
+#### LVS相关问题与性能优化
 
 **网卡 LRO/GRO 功能**
 

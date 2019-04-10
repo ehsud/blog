@@ -4,13 +4,13 @@ title: LVS 与 Keepalived 高可用架构
 description: lvs 与 keepalived 构建高可用双机热备方案
 ---
 
-##### LVS 与 Keepalived 高可用
+#### LVS 与 Keepalived 高可用
 
 Keepalived 是一种利用 VRRP 协议来实现双机热备高可用的软件方案，它可以工作在第 3、4、和第 7 层网络上。 Keepalived 使用一台 master 主服务器和一台 backup 备份服务器做冗余来实现高可用，当某一台宕机，另外一台会立即抢占 VIP 地址，继续对外提供服务。
    
 ![image](/assets/img/lvs-keepalvied.png)
    
-##### LVS 与Keepalived 配置部署
+#### LVS 与Keepalived 配置部署
 
 master 和 backup 服务器的 LVS 超时时间设置
 
