@@ -8,6 +8,7 @@
     <meta name="description" content="{{ site.description }}" />
     <link rel="canonical" href="{{ site.baseurl }}" />
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 </head>
 <body class="d-flex flex-column h-100">
@@ -29,7 +30,7 @@
                   {% for page in site.pages %}
                     {% if page.title %}
                       <li>
-                        <a href="{{ page.url }}">{{ page.title }}</a>
+                        <a href="{{ page.url }}"><i class="icon-file-text-alt"></i> {{ page.title }}</a>
                       </li>
                     {% endif %}
                   {% endfor %}
