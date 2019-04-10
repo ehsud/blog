@@ -4,9 +4,7 @@ title: postgresql 9.6 编译安装及配置
 description: 讲解如何编译安装 postgresql 9.6 数据库
 ---
 
-##### PostgreSQL 9.6 编译安装
-
-服务器环境为 CentOS 7.3 和 PostgreSQL 9.6.2。通常我们建议使用最新的 PostgreSQL 版本。首先在 PostgreSQL 官方网站下载最新版本的 PostgreSQL 源代码包。
+服务器环境为 CentOS 7 和 PostgreSQL 9.6 版本。通常我们建议使用最新的 PostgreSQL 版本。首先在 PostgreSQL 官方网站下载最新版本的 PostgreSQL 源代码包。
 
 ##### 安装 PostgreSQL 依赖开发包
 

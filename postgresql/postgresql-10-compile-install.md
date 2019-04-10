@@ -4,16 +4,13 @@ title: postgresql 10 编译安装及配置
 description: 讲解如何编译安装 postgresql 10 数据库
 ---
 
-##### PostgreSQL 10 编译安装
+使用 CentOS 7.4 环境，PostgreSQL 10 版本
 
-* CentOS 7.4
-* PostgreSQL 10.2
-
-##### 依赖开发包安装
+#### 依赖开发包安装
 
     $ yum install -y gcc gcc-c++ make readline-devel zlib-devel openssl-devel perl-devel libxml2-devel systemd-devel
 
-##### 编译 PostgreSQL 源码
+#### 编译 PostgreSQL 源码
 
     $ tar -zxvf postgresql-10.2.tar.gz
     $ cd postgresql-10.2
@@ -21,21 +18,21 @@ description: 讲解如何编译安装 postgresql 10 数据库
     $ make
     $ make install
 
-##### 创建运行用户
+#### 创建运行用户
 
     $ useradd -m -d /var/pgsql -c "postgresql databases user" postgres
 
-##### 创建数据库目录
+#### 创建数据库目录
 
     $ mkdir -p /var/pgsql/data
     $ chown -R postgres:postgres /var/pgsql/data
 
-##### 初始化数据库
+#### 初始化数据库
 
     $ su - postgres
     $ /usr/local/postgresql/bin/initdb --pgdata=/var/pgsql/data --encoding=UTF8
 
-##### 相关配置文件
+#### 相关配置文件
 
 pg_hba.conf
 
@@ -52,9 +49,9 @@ postgresql.conf
     maintenance_work_mem = 64MB
     effective_cache_size = 256MB
 
-##### systemd 服务脚本
+#### systemd 服务脚本
 
-- /etc/systemd/system/postgresql.service
+创建 /etc/systemd/system/postgresql.service 配置文件
 
 ```
 [Unit]
@@ -78,21 +75,21 @@ ExecReload=/usr/local/postgresql/bin/pg_ctl -D /var/pgsql/data -s reload
 WantedBy=multi-user.target
 ```
 
-**开启 postgresql 服务**
+开启 postgresql 服务
 
     $ systemctl enable postgresql.service
 
-**启动 postgresql 服务**
+启动 postgresql 服务
 
     $ systemctl start postgresql.service
 
-**手动启动 PostgreSQL 服务**
+手动启动 PostgreSQL 服务
 
     $ /usr/local/postgresql/bin/pg_ctl -D /var/pgsql/data -l /tmp/postgresql.log start
 
-##### 内核参数优化
+#### 内核参数优化
 
-- /etc/sysctl.conf
+编辑 /etc/sysctl.conf 内核配置文件
 
 ```
 fs.nr_open = 2048000
@@ -105,7 +102,7 @@ net.ipv4.tcp_tw_recycle = 1
 net.ipv4.tcp_tw_reuse = 1
 ```
 
-- /etc/security/limits.conf
+编辑 /etc/security/limits.conf 内核配置文件
 
 ```
 * soft    nofile  1024000
