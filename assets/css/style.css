@@ -8,6 +8,10 @@ body {
     background-color: #ffffff;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bolder;
+}
+
 .content img {
     width: 100%;
 }
