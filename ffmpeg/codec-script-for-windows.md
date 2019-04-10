@@ -1,8 +1,8 @@
 ---
-layout: default
+layout: post
 title: ffmpeg 一键自动转码脚本
 description: 介绍如何便携 ffmpeg 一键自动处理脚本
-category: ffmpeg
+categories: [ffmpeg]
 tags: [ffmpeg, 转码]
 copyleft: true
 ---
