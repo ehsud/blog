@@ -17,14 +17,11 @@ body {
     margin-bottom: 1rem;
 }
 
-ul {
+li {
+    list-style-type: circle;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-
-li {
-    list-style-type: circle;
 }
 
 pre[class="highlight"] {
