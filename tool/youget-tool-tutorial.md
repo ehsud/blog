@@ -75,7 +75,7 @@ C:\> you-get -s 127.0.0.1:233 https://www.youtube.com/watch?v=0xf74982a
 C:\Users\Administrator\AppData\Roaming\Mozilla\Firefox\Profiles\5vucqwst.default-1528101192336\cookies.sqlite
 ```
 
-3.然后使用 you-get 工具的 `-c` 参数加载 cookie 文件，便可下载视频
+3) 然后使用 you-get 工具的 `-c` 参数加载 cookie 文件，便可下载视频
 
 ```
 C:\> set cookie=C:\Users\Administrator\AppData\Roaming\Mozilla\Firefox\Profiles\5vucqwst.default-1528101192336\cookies.sqlite
