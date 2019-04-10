@@ -4,15 +4,13 @@ title: rabbitmq 与 haproxy 负载均衡配置
 description: 使用 rabbitmq 与 haproxy 构建高可用负载均衡方案 
 ---
 
-##### RabbitMQ 与 HAProxy 负载均衡
-
-**RabbitMQ 集群节点**
+#### RabbitMQ 集群节点
 
 - node1 192.168.1.101   磁盘节点
 - node2 192.168.1.102   内存节点
 - node3 192.168.1.103   内存节点
   
-##### 安装配置 HAProxy
+#### 安装配置 HAProxy
 
     $ yum install -y haproxy
 
