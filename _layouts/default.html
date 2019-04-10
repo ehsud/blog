@@ -29,8 +29,8 @@
                 <ul>
                   {% for page in site.pages %}
                     {% if page.title %}
-                      <li>
-                        <a href="{{ page.url }}"><i class="icon-file-text-alt"></i> {{ page.title }}</a>
+                      <li class="my-1">
+                        <a class="text-dark" href="{{ page.url }}"><i class="icon-file-text-alt"></i> {{ page.title }}</a>
                       </li>
                     {% endif %}
                   {% endfor %}
