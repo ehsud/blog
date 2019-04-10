@@ -20,3 +20,5 @@ copyleft: true
 - crf编码模式 crf.bat
 - vbr编码模式 vbr.bat
 - 2pass编码模式 2pass.bat
+
+本文章未完待续。。。
