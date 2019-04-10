@@ -203,11 +203,9 @@ lvresize 命令参数说明
 
 ### LVM 故障处理与常见问题
 
-#### LVM 物理磁盘发生故障无法识别
+LVM 物理磁盘发生故障无法识别，比如当前系统有一个 vg0 逻辑卷组，这个 vg0 卷组中有两块物理卷 sdb1 和 sdc1 ，有一天有一块硬盘损坏无法识别，首先要进入系统恢复模式进行如下操作。
 
-比如当前系统有一个 vg0 逻辑卷组，这个 vg0 卷组中有两块物理卷 sdb1 和 sdc1 ，有一天有一块硬盘损坏无法识别，首先要进入系统恢复模式进行如下操作。
-
-1.使用 pvscan 命令扫描所有 PV 物理卷
+#### 1. 使用 pvscan 命令扫描所有 PV 物理卷
 
 ```
 $ pvscan
@@ -219,7 +217,7 @@ Total: 2 [15.88 GiB] / in use: 2 [15.88 GiB] / in no VG: 0 [0  ]
 
 发现第 1 行有一条警告： 有一个 UUID 为 zIHQ8a-YIrM-uXQZ-zYIf-LqxG-yJxc-z2y5QX 的 PV 物理卷丢失，第 3 行表示我们的 PV 物理卷 /dev/sdc1 损坏并且无法识别，所以显示 unknown
 
-2.使用 LVM 提供的 vgreduce 命令从 vg0 卷组中删除所有无法识别的物理卷
+#### 2. 使用 LVM 提供的 vgreduce 命令从 vg0 卷组中删除所有无法识别的物理卷
 
 ```
 $ vgreduce --removemissing --force vg0
@@ -227,7 +225,7 @@ $ vgreduce --removemissing --force vg0
 - *--removemissing* 表示删除 vg0 卷组中所有无法识别丢失的物理卷
 - *--force*         表示强制删除
 
-3.使用 vgscan 查看 LV 卷组状态
+#### 3. 使用 vgscan 查看 LV 卷组状态
 
 ```
 $ vgscan
@@ -235,7 +233,7 @@ Reading volume groups from cache.
 Found volume group "vg0" using metadata type lvm2
 ```
 
-4.使用 pvscan 查看 PV 物理卷状态
+#### 4. 使用 pvscan 查看 PV 物理卷状态
 
 ```
 $ pvscan
