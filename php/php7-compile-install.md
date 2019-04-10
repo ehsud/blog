@@ -4,10 +4,7 @@ title: PHP 7 编译安装
 description: 在 CentOS 7 环境下编译安装 PHP 7
 ---
 
-- php 7.2.2
-- 开启 php-fpm
-- 开启 pdo 扩展
-- 开启 pgsql 扩展
+使用 php 7.2 版本，开启 php-fpm、开启 pdo 扩展、开启 pgsql 扩展
 
 #### 安装 php 所需依赖包
 
