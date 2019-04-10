@@ -17,6 +17,10 @@ body {
     margin-bottom: 1rem;
 }
 
+ul {
+    margin-inline-start: -2rem;
+}
+
 li {
     list-style-type: circle;
     overflow: hidden;
