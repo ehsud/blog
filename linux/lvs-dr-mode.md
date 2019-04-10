@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: LVS DR 工作模式
 description: lvs 负载均衡的 DR 直接路由工作模式
 copyleft: true

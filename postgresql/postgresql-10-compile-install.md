@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: postgresql 10 编译安装及配置
 description: 讲解如何编译安装 postgresql 10 数据库
 copyleft: true

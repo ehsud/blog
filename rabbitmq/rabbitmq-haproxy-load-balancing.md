@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: rabbitmq 与 haproxy 负载均衡配置
 description: 使用 rabbitmq 与 haproxy 构建高可用负载均衡方案 
 copyleft: true

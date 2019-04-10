@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: rabbitmq 安装及基本配置
 description: 讲解 rabbitmq 消息队列服务器的基本安装和配置
 copyleft: true

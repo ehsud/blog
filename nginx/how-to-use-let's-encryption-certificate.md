@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: 如何使用 Let's Encrypt 域名 SSL 证书
 description: 教你如何使用 Let's Encrypt 的免费 SSL 证书给网站启用 https
 copyleft: true

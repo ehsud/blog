@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: Linux 多网关配置
 description: linux 下的多网关，多路由配置
 copyleft: true
