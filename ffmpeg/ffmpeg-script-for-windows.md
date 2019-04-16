@@ -14,11 +14,11 @@ tags: [ffmpeg, windows]
 
 ### ffmpeg 脚本下载地址
 
-- [CQP 转码模式.bat](/script/cqp.bat) 
-- [ABR 转码模式.bat](/script/abr.bat)
-- [CRF 转码模式.bat](/script/crf.bat)
-- [VBR 转码模式.bat](/script/vbr.bat)
-- [2PASS 转码模式.bat](/script/2pass.bat)
+- [CQP 转码模式.bat](/script/cqp.bat) ffmpeg cqp 转码模式
+- [ABR 转码模式.bat](/script/abr.bat) ffmpeg abr 转码模式
+- [CRF 转码模式.bat](/script/crf.bat) ffmpeg crf 转码模式
+- [VBR 转码模式.bat](/script/vbr.bat) ffmpeg vbr 转码模式
+- [2PASS 转码模式.bat](/script/2pass.bat) ffmpeg 2pass 转码模式
 
 ### 如何修改脚本中的视频转码参数
 
