@@ -31,7 +31,7 @@ tags: [git, linux, deploy]
 
 官方文档：[https://git-scm.com/docs/githooks](https://git-scm.com/docs/githooks)
 
-### 使用 git 自动代码部署的原理 
+### 使用 git 自动代码部署准备
 
 - **client** 表示客户端，也就是代码开发的本地仓库机器
 - **server** 表示服务器，这里 web 服务器和远程 git 仓库在同一机器上
