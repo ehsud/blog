@@ -13,14 +13,14 @@ tags: [git, linux, deploy]
 
 什么是 git hooks 上面已经讲过了，事实上 git hooks 是一些会被 git 自动调用的 shell 脚本程序，它可以是 sh、bash、perl、lua、甚至是 php 编写的任何脚本程序，当然执行了不同的 git 命令会调用不同的 hooks 脚本，而脚本又分为客户端执行的和服务器端执行的。例如下面这些例子
 
-客户端执行的
+**客户端执行的**
 
 - `pre-commit`   在创建提交信息之前执行
 - `post-commit`  在整个提交过程完成后运行 
 - `pre-rebase`   此 hook 会在 `git rebase` 命令之前运行
 - `....`         其他的一些 hook 省略...
 
-服务器端执行的
+**服务器端执行的**
 
 - `pre-receive`  当客户端推送代码到服务器时最先被执行的脚本
 - `post-receive` 在客户端完成整个推送过程之后执行的脚本
