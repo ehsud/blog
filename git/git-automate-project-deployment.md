@@ -56,7 +56,7 @@ tags: [git, linux, deploy]
     $ cd demo.git
     $ emacs hooks/post-receive
 
-编辑 post-receive 文件，内容如下
+这里我们使用 emacs 编辑 post-receive 文件，内容如下
 
     #!/bin/sh
     git --work-tree=/var/www checkout -f master
