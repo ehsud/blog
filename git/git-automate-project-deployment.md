@@ -53,6 +53,7 @@ tags: [git, linux, deploy]
 
 开始创建自动部署 hook 脚本文件，在仓库目录下的 hooks 文件夹下
 
+    $ cd demo.git
     $ emacs hooks/post-receive
 
 编辑 post-receive 文件，内容如下
