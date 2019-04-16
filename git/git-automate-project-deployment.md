@@ -70,7 +70,7 @@ tags: [git, linux, deploy]
 
     ssh://root@10.10.10.10/var/repos/demo.git
 
-以上为 demo 项目仓库的完整地址，当然我们使用 ssh 协议的方式，因为简单，简单到爆炸，爆炸到飞起！
+以上为 demo 项目仓库的完整地址，当然我们使用 ssh 协议的方式，因为简单，简单到爆炸，炸到飞起！
 
 ### Client 客户端配置
 
