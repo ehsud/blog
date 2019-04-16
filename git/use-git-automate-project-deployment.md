@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Archlinux 安装教程
-description: 快速安装一个 archlinux 服务器系统与桌面环境
+title: 如何使用 git 自动部署 web 项目到服务器
+description: 讲解如何使用 git 的 hook 特效自动化部署 web 项目到服务器
 category: [git]
 tags: [git, linux, deploy]
 ---
