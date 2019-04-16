@@ -31,14 +31,14 @@ tags: [git, linux, deploy]
 
 官方文档：[https://git-scm.com/docs/githooks](https://git-scm.com/docs/githooks)
 
-### 开始使用 git 自动代码部署
+### 使用 git 自动代码部署的原理 
 
 - **client** 表示客户端，也就是代码开发的本地仓库机器
 - **server** 表示服务器，这里 web 服务器和远程 git 仓库在同一机器上
 
 使用 git 自动部署 web 项目是使用的 git 的 post-receive 钩子脚本，这种钩子是使用的 304 食品级不锈钢制作，嗯！还是少废话，事实上 post-receive 钩子脚本会在客户端推送代码到服务器完成后，在服务器端会自动执行的脚本。原来是这样的思密达！我们开始干吧。
 
-#### 1. 在服务器端创建一个空的仓库
+### Server 服务器端配置
 
 先创建一个 /var/repos 目录，用来存放所有项目仓库
 
@@ -72,7 +72,7 @@ tags: [git, linux, deploy]
 
 以上为 demo 项目仓库的完整地址，当然我们使用 ssh 协议的方式，因为简单，简单到爆炸，爆炸到飞起！
 
-#### 2. 在客户端机器创建一个项目仓库
+### Client 客户端配置
 
 接下来就是客户端需要做的事情了，先创建一个项目仓库
 
