@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ffmpeg 一键自动转码脚本
+title: ffmpeg 一键自动转码脚本 windows 版
 description: 一些便携 ffmpeg 自动转码处理脚本
 categories: [ffmpeg]
 tags: [ffmpeg, windows]
