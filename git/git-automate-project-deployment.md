@@ -68,9 +68,13 @@ tags: [git, linux, deploy]
 
 最后使用 echo 命令，在完成代码部署之后，向客户端输出一条消息以告知代码部署完成！
 
-    ssh://root@10.10.10.10/var/repos/demo.git
+创建好 post-receive 文件后，需要将其添加可执行权限即可
 
-以上为 demo 项目仓库的完整地址，当然我们使用 ssh 协议的方式，因为简单，简单到爆炸，炸到飞起！
+    $ chmod +x hooks/post-receive
+
+以下就是 demo 项目仓库的完整地址，当然我们使用 ssh 协议的方式，因为简单，简单到爆炸，炸到飞起！
+
+    ssh://root@10.10.10.10/var/repos/demo.git
 
 ### Client 客户端配置
 
