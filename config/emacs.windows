@@ -2,11 +2,11 @@
 (package-initialize)
 
 ;; Emacs 软件包仓库
-(add-to-list 'package-archives
-             '("melpa" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("elpa" . "https://elpa.typefo.com/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 ;; 设置编辑器标题
-(set-frame-name "emacs")
+(set-frame-name "emacs@localhost")
 
 ;; 设置本地语言环境编码
 (set-locale-environment "UTF-8")
@@ -20,7 +20,7 @@
 (setq default-frame-alist '((height . 35) (width . 130) (menu-bar-lines . 20) (tool-bar-lines . 0)))
 
 ;; 设置默认字体
-(set-default-font "-outline-Consolas-normal-normal-normal-mono-14-*-*-*-c-*-iso8859-1")
+(set-default-font "-outline-Consolas-normal-normal-normal-mono-16-*-*-*-c-*-iso8859-1")
 
 ;; 加载主题样式
 (load-theme 'wombat t)
@@ -35,7 +35,7 @@
 (global-visual-line-mode 1)
 
 ;; 设置emacs自动加载路径
-(add-to-list 'load-path "~/.emacs.d/lisp")
+;;(add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;; 开启显示行号
 (require 'linum)
@@ -79,7 +79,7 @@
 (global-set-key [f4] 'kill-this-buffer)
 (global-set-key [f5] 'goto-line)
 (global-set-key [f7] 'indent-buffer)
-(global-set-key [f8] 'compile)
+(global-set-key [f8] 'eshell)
 (global-set-key [f11] 'toggle-frame-fullscreen)
 (global-set-key (kbd "C-t") 'set-mark-command)
 
@@ -110,11 +110,11 @@
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
 ;; Markdown 模式
-(autoload 'markdown-mode "markdown-mode"
-  "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+;;(autoload 'markdown-mode "markdown-mode"
+;;  "Major mode for editing Markdown files" t)
+;;(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+;;(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+;;(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; buffer平滑滚动
 (defun smooth-scroll (increment)
@@ -126,12 +126,13 @@
   (scroll-up increment))
 
 ;; 加载自动提示插件
-(add-to-list 'load-path "~/.emacs.d/lisp/auto-complete")
-(require 'auto-complete)
-(require 'auto-complete-config)
+;;(add-to-list 'load-path "~/.emacs.d/lisp/auto-complete")
+;;(require 'auto-complete)
+;;(require 'auto-complete-config)
 
 ;; 加载关键字词典
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/auto-complete/dict")
+;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/auto-complete/dict")
+
 (ac-config-default)
 
 ;; 最短提示长度
@@ -141,7 +142,7 @@
 (setq ac-ignore-case t)
 
 ;; 开启 fuzzy
-(setq ac-fuzzy-enable t)
+;;(setq ac-fuzzy-enable t)
 
 ;; 关键字选择快捷键
 (setq ac-use-menu-map t)
@@ -157,10 +158,10 @@
 (set-face-background 'ac-selection-face "steelblue")
 
 ;; org mode
-(setq org-html-validation-link nil)
-(setq org-html-doctype "html5")
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+;(setq org-html-validation-link nil)
+;(setq org-html-doctype "html5")
+;(require 'org-bullets)
+;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -168,7 +169,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(markdown-command "/d/local/bin/multimarkdown.exe")
- '(package-selected-packages (quote (gnugo))))
+ '(package-selected-packages
+   (quote
+    (ac-clang ac-html ac-html-bootstrap ac-html-csswatcher ac-php ac-php-core auto-complete html5-schema gnugo))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
