@@ -1,9 +1,9 @@
-;; Emacs 包管理器初始化
+;; Emacs Package manager initialization
 (package-initialize)
 
-;; Emacs 软件包仓库
+;; Emacs package repository
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("elpa" . "https://elpa.typefo.com/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 ;; 设置编辑器标题
 (set-frame-name "emacs@localhost")
@@ -38,8 +38,8 @@
 ;;(add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;; 开启显示行号
-(require 'linum)
-(global-linum-mode t)
+;(require 'linum)
+;(global-linum-mode t)
 
 ;; 设置当前行高亮样式
 ;;(require 'hl-line)
@@ -91,6 +91,13 @@
 ;; yes/no 简化提示
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; 窗口操作
+(global-set-key (kbd "M-b")  'windmove-left)
+(global-set-key (kbd "M-f") 'windmove-right)
+(global-set-key (kbd "M-p")    'windmove-up)
+(global-set-key (kbd "M-n")  'windmove-down)
+
+
 ;;(setq minibuffer-max-depth nil)
 (setq scroll-margin 1
 	  scroll-conservatively 100)
@@ -99,24 +106,28 @@
 (require 'powerline)
 (powerline-default-theme)
 
-;; C语言模式
+;; C language
 (setq default-tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq c-default-style "linux")
 (setq c-basic-offset 4)
 
-;; PHP 模式
+
+;(require 'auto-complete-c-headers)
+;(add-to-list 'ac-sources 'ac-source-c-headers)
+
+;; PHP language
 (autoload 'php-mode "php-mode" "Major mode for editing php code." t)
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
-;; Markdown 模式
+;; Markdown language
 ;;(autoload 'markdown-mode "markdown-mode"
 ;;  "Major mode for editing Markdown files" t)
 ;;(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-;; buffer平滑滚动
+;; buffer 平滑滚动
 (defun smooth-scroll (increment)
   (scroll-up increment) (sit-for 0.05)
   (scroll-up increment) (sit-for 0.02)
@@ -125,43 +136,79 @@
   (scroll-up increment) (sit-for 0.06)
   (scroll-up increment))
 
-;; 加载自动提示插件
+;; 代码自动提示
 ;;(add-to-list 'load-path "~/.emacs.d/lisp/auto-complete")
 ;;(require 'auto-complete)
 ;;(require 'auto-complete-config)
 
-;; 加载关键字词典
+;; 关键字词典
 ;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/auto-complete/dict")
 
-(ac-config-default)
+
+;; Auto complete
+;(ac-config-default)
 
 ;; 最短提示长度
-(setq ac-auto-start 3)
+;(setq ac-auto-start 3)
 
 ;; 忽略大小写
-(setq ac-ignore-case t)
+;(setq ac-ignore-case t)
 
 ;; 开启 fuzzy
 ;;(setq ac-fuzzy-enable t)
 
 ;; 关键字选择快捷键
-(setq ac-use-menu-map t)
-(define-key ac-menu-map "\C-n" 'ac-next)
-(define-key ac-menu-map "\C-p" 'ac-previous)
+;(setq ac-use-menu-map t)
+;(define-key ac-menu-map "\C-n" 'ac-next)
+;(define-key ac-menu-map "\C-p" 'ac-previous)
 
 ;; 自动提示列表显示速度
-(setq ac-auto-show-menu 0.5)
+;(setq ac-auto-show-menu 0.1)
 
 ;; 自动提示框颜色设置
-(set-face-background 'ac-candidate-face "darkgray")
-(set-face-underline 'ac-candidate-face "gray")
-(set-face-background 'ac-selection-face "steelblue")
+;(set-face-background 'ac-candidate-face "darkgray")
+;(set-face-underline 'ac-candidate-face "gray")
+;(set-face-background 'ac-selection-face "steelblue")
 
 ;; org mode
 ;(setq org-html-validation-link nil)
 ;(setq org-html-doctype "html5")
 ;(require 'org-bullets)
 ;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+
+;; Compnay mode
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay 0)
+
+;; Company 快捷键
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
+;; Company 颜色主题
+
+(custom-set-faces
+'(company-preview ((t (:background "gold3" :foreground "black"))))
+ '(company-preview-common ((t (:background "gold3" :foreground "grey20"))))
+ '(company-preview-search ((t (:background "green4" :foreground "green"))))
+ '(company-scrollbar-bg ((t (:background "#303030"))))
+ '(company-scrollbar-fg ((t (:background "#404040"))))
+ '(company-tooltip ((t (:background "#202020" :foreground "grey"))))
+ '(company-tooltip-annotation ((t (:foreground "lime green"))))
+ '(company-tooltip-annotation-selection ((t (:foreground "white"))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :foreground "white"))))
+ '(company-tooltip-common-selection ((t (:foreground "white"))))
+ '(company-tooltip-selection ((t (:background "red3" :foreground "white"))))
+ )
+
+(add-hook 'php-mode-hook
+          '(lambda ()
+            (require 'company-php)
+            (company-mode t)
+            (add-to-list 'company-backends 'company-ac-php-backend )))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -171,7 +218,7 @@
  '(markdown-command "/d/local/bin/multimarkdown.exe")
  '(package-selected-packages
    (quote
-    (ac-clang ac-html ac-html-bootstrap ac-html-csswatcher ac-php ac-php-core auto-complete html5-schema gnugo))))
+    (company company-c-headers company-php powerline ac-clang ac-html ac-html-bootstrap ac-html-csswatcher ac-php ac-php-core html5-schema gnugo))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
