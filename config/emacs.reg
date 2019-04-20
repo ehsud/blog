@@ -1,0 +1,16 @@
+Windows Registry Editor Version 5.00
+
+
+
+[HKEY_CLASSES_ROOT\*\shell]
+
+[HKEY_CLASSES_ROOT\*\shell\openwemacs]
+@="&Open with emacs"
+
+[HKEY_CLASSES_ROOT\*\shell\openwemacs\command]
+@="D:\\local\\emacs-26.2\\bin\\runemacs.exe \"%1\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\openwemacs]
+@="Open with emacs"
+[HKEY_CLASSES_ROOT\Directory\shell\openwemacs\command]
+@="D:\\local\\emacs-26.2\\bin\\runemacs.exe \"%1\""
