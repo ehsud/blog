@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 如何使用 Let's Encrypt 域名 SSL 证书
-description: 教你如何使用 Let's Encrypt 的免费 SSL 证书给网站启用 https
+title: 日志分析工具 GoAccess 安装教程
+description: 介绍 goaccess 工具的基本安装方法
 ---
 
 GoAccess 是一个用来分析 Web 服务器日志的工具，可以对 Nginx 、Apache 的日志进行分析统计。它提供有命令行界面，并且可以生成静态HTML页面。
