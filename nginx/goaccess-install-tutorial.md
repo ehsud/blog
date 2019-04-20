@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 日志分析工具 GoAccess 安装教程
+title: 日志工具 GoAccess 安装及使用教程
 description: 介绍 goaccess 工具的基本安装方法
 ---
 
