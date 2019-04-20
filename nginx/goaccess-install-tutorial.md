@@ -4,7 +4,7 @@ title: 日志工具 GoAccess 安装及使用教程
 description: 介绍 goaccess 工具的基本安装方法
 ---
 
-GoAccess 是一个用来分析 Web 服务器日志的工具，可以对 Nginx 、Apache 的日志进行分析统计。它提供有命令行界面，并且可以生成静态HTML页面。
+GoAccess 是一个用来分析 Web 服务器日志的工具，可以对 Nginx 、Apache 的日志进行分析统计。它提供有命令行界面，并且可以生成静态HTML页面形式的分析报告。
 
 ### GoAccess 安装方法
 
