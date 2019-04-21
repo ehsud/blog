@@ -24,7 +24,10 @@
 (setq inhibit-compacting-font-caches t)
 
 ;; 设置默认字体
-(set-default-font "-outline-Consolas-normal-normal-normal-mono-16-*-*-*-c-*-iso8859-1")
+(set-frame-font "-outline-Consolas-normal-normal-normal-mono-16-*-*-*-c-*-iso8859-1")
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font)
+                    charset (font-spec :family "Microsoft Yahei" :size 14)))
 
 ;; 设置emacs自动加载路径
 (add-to-list 'load-path "~/.emacs.d/lisp")
@@ -35,7 +38,9 @@
 (delete-selection-mode t)
 
 ;; 最大行字符长度
-(setq default-fill-column 80)
+;(setq default-fill-column 80)
+
+(set-default 'truncate-lines 0)
 
 ;; 禁用滚动条
 (scroll-bar-mode -1)
@@ -80,6 +85,9 @@
   (save-excursion
     (indent-region (point-min) (point-max) nil)))
 
+;; Copy current line
+(require 'copy-current-line)
+
 ;; Key binding
 (global-set-key [f4] 'kill-this-buffer)
 (global-set-key [f5] 'goto-line)
@@ -87,6 +95,7 @@
 (global-set-key [f8] 'eshell)
 (global-set-key [f11] 'toggle-frame-fullscreen)
 (global-set-key (kbd "C-t") 'set-mark-command)
+(global-set-key (kbd "C-j") 'copy-current-line)
 
 (global-set-key (kbd "M-p") 'previous-buffer)
 (global-set-key (kbd "M-n") 'next-buffer)
@@ -102,11 +111,16 @@
 ;; 自动重载被修改文件
 (global-auto-revert-mode t)
 
+;;(abbrev-mode t)
+;;(define-abbrev-table 'global-abbrev-table
+;;    '(("html" "<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n\n</div>\n</html>")))
+
 ;; 窗口操作
 ;(global-set-key (kbd "M-b")  'windmove-left)
 ;(global-set-key (kbd "M-f") 'windmove-right)
 ;(global-set-key (kbd "M-p")    'windmove-up)
 ;(global-set-key (kbd "M-n")  'windmove-down)
+
 
 ;;(setq minibuffer-max-depth nil)
 (setq scroll-margin 1
@@ -119,6 +133,18 @@
 ;; Expand-region
 (global-set-key (kbd "C-i") 'er/expand-region)
 (global-set-key (kbd "C-,") 'er/contract-region)
+
+;; Email setting
+(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
+
+(setq user-full-name "typefo")
+(setq user-mail-address "typefo@hotmail.com")
+
+(setq gnus-select-method
+             '(nnimap "Hotmail"
+                      (nnimap-address "outlook.office365.com")
+                      (nnimap-server-port 993)
+                      (nnimap-stream ssl)))
 
 ;; Emacs lisp language
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
@@ -179,9 +205,17 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
+
 ;; Web development
 (require 'web-mode)
 (setq auto-mode-alist (append '(("\\.html\\'" . web-mode)) auto-mode-alist))
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+(set-face-attribute 'web-mode-doctype-face nil :foreground "#228b22")
+(set-face-attribute 'web-mode-html-tag-face nil :foreground "#87ceeb")
+(set-face-attribute 'web-mode-html-attr-name-face nil :foreground "#cdbe70")
+(set-face-attribute 'web-mode-html-attr-value-face nil :foreground "#bcee68")
 
 ;; bootstrap for Web development
 (add-hook 'web-mode-hook '(lambda ()
@@ -216,7 +250,7 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (web-mode company-bootstrap js2-mode company company-c-headers company-php powerline ac-php ac-php-core html5-schema gnugo powerline)))
+    (expand-region web-mode company-bootstrap js2-mode company company-c-headers company-php powerline ac-php ac-php-core html5-schema gnugo powerline)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 
