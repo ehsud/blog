@@ -1,4 +1,5 @@
 ;; Emacs Package manager initialization
+(require 'package)
 (package-initialize)
 
 ;; Emacs package repository
@@ -19,11 +20,19 @@
 ;; 设置启动时窗口的高度宽度和工具栏菜单显示方式
 (setq default-frame-alist '((height . 35) (width . 130) (menu-bar-lines . 20) (tool-bar-lines . 0)))
 
+;; 禁止压缩字体，提高中文处理速度
+(setq inhibit-compacting-font-caches t)
+
 ;; 设置默认字体
 (set-default-font "-outline-Consolas-normal-normal-normal-mono-16-*-*-*-c-*-iso8859-1")
 
+;; 设置emacs自动加载路径
+(add-to-list 'load-path "~/.emacs.d/lisp")
+
 ;; 加载主题样式
 (load-theme 'wombat t)
+
+(delete-selection-mode t)
 
 ;; 最大行字符长度
 (setq default-fill-column 80)
@@ -34,12 +43,9 @@
 ;; 禁用换行符号
 (global-visual-line-mode 1)
 
-;; 设置emacs自动加载路径
-;;(add-to-list 'load-path "~/.emacs.d/lisp")
-
 ;; 开启显示行号
-;(require 'linum)
-;(global-linum-mode t)
+(require 'linum)
+(global-linum-mode t)
 
 ;; 设置当前行高亮样式
 ;;(require 'hl-line)
@@ -74,14 +80,16 @@
   (save-excursion
     (indent-region (point-min) (point-max) nil)))
 
-
-;; 快捷键设置
+;; Key binding
 (global-set-key [f4] 'kill-this-buffer)
 (global-set-key [f5] 'goto-line)
 (global-set-key [f7] 'indent-buffer)
 (global-set-key [f8] 'eshell)
 (global-set-key [f11] 'toggle-frame-fullscreen)
 (global-set-key (kbd "C-t") 'set-mark-command)
+
+(global-set-key (kbd "M-p") 'previous-buffer)
+(global-set-key (kbd "M-n") 'next-buffer)
 
 (setq backup-inhibited t)
 
@@ -91,12 +99,14 @@
 ;; yes/no 简化提示
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; 窗口操作
-(global-set-key (kbd "M-b")  'windmove-left)
-(global-set-key (kbd "M-f") 'windmove-right)
-(global-set-key (kbd "M-p")    'windmove-up)
-(global-set-key (kbd "M-n")  'windmove-down)
+;; 自动重载被修改文件
+(global-auto-revert-mode t)
 
+;; 窗口操作
+;(global-set-key (kbd "M-b")  'windmove-left)
+;(global-set-key (kbd "M-f") 'windmove-right)
+;(global-set-key (kbd "M-p")    'windmove-up)
+;(global-set-key (kbd "M-n")  'windmove-down)
 
 ;;(setq minibuffer-max-depth nil)
 (setq scroll-margin 1
@@ -106,19 +116,35 @@
 (require 'powerline)
 (powerline-default-theme)
 
+;; Expand-region
+(global-set-key (kbd "C-i") 'er/expand-region)
+(global-set-key (kbd "C-,") 'er/contract-region)
+
+;; Emacs lisp language
+(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+
 ;; C language
 (setq default-tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq c-default-style "linux")
 (setq c-basic-offset 4)
 
-
-;(require 'auto-complete-c-headers)
-;(add-to-list 'ac-sources 'ac-source-c-headers)
+(add-hook 'cc-mode-hook '(lambda ()
+    (require 'auto-complete-c-headers)
+    (add-to-list 'ac-sources 'ac-source-c-headers))
+)
 
 ;; PHP language
-(autoload 'php-mode "php-mode" "Major mode for editing php code." t)
-(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(with-eval-after-load 'php-mode '(require 'php-ext))
+
+(add-hook 'php-mode-hook
+          '(lambda ()
+            (require 'company-php)
+            (company-mode t)
+            (add-to-list 'company-backends 'company-ac-php-backend )))
+
+;; Javascript language
+(setq auto-mode-alist (append '(("\\.js\\'" . js2-mode)) auto-mode-alist))
 
 ;; Markdown language
 ;;(autoload 'markdown-mode "markdown-mode"
@@ -136,46 +162,11 @@
   (scroll-up increment) (sit-for 0.06)
   (scroll-up increment))
 
-;; 代码自动提示
-;;(add-to-list 'load-path "~/.emacs.d/lisp/auto-complete")
-;;(require 'auto-complete)
-;;(require 'auto-complete-config)
-
-;; 关键字词典
-;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/auto-complete/dict")
-
-
-;; Auto complete
-;(ac-config-default)
-
-;; 最短提示长度
-;(setq ac-auto-start 3)
-
-;; 忽略大小写
-;(setq ac-ignore-case t)
-
-;; 开启 fuzzy
-;;(setq ac-fuzzy-enable t)
-
-;; 关键字选择快捷键
-;(setq ac-use-menu-map t)
-;(define-key ac-menu-map "\C-n" 'ac-next)
-;(define-key ac-menu-map "\C-p" 'ac-previous)
-
-;; 自动提示列表显示速度
-;(setq ac-auto-show-menu 0.1)
-
-;; 自动提示框颜色设置
-;(set-face-background 'ac-candidate-face "darkgray")
-;(set-face-underline 'ac-candidate-face "gray")
-;(set-face-background 'ac-selection-face "steelblue")
-
 ;; org mode
 ;(setq org-html-validation-link nil)
 ;(setq org-html-doctype "html5")
 ;(require 'org-bullets)
 ;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-
 
 ;; Compnay mode
 (add-hook 'after-init-hook 'global-company-mode)
@@ -188,40 +179,44 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
+;; Web development
+(require 'web-mode)
+(setq auto-mode-alist (append '(("\\.html\\'" . web-mode)) auto-mode-alist))
+
+;; bootstrap for Web development
+(add-hook 'web-mode-hook '(lambda ()
+            (add-to-list 'company-backends 'company-bootstrap)))
+
 ;; Company 颜色主题
 
 (custom-set-faces
-'(company-preview ((t (:background "gold3" :foreground "black"))))
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-preview ((t (:background "gold3" :foreground "black"))))
  '(company-preview-common ((t (:background "gold3" :foreground "grey20"))))
  '(company-preview-search ((t (:background "green4" :foreground "green"))))
  '(company-scrollbar-bg ((t (:background "#303030"))))
  '(company-scrollbar-fg ((t (:background "#404040"))))
- '(company-tooltip ((t (:background "#202020" :foreground "grey"))))
+ '(company-tooltip ((t (:background "#2e2e2e" :foreground "grey"))))
  '(company-tooltip-annotation ((t (:foreground "lime green"))))
  '(company-tooltip-annotation-selection ((t (:foreground "white"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :foreground "white"))))
  '(company-tooltip-common-selection ((t (:foreground "white"))))
- '(company-tooltip-selection ((t (:background "red3" :foreground "white"))))
- )
-
-(add-hook 'php-mode-hook
-          '(lambda ()
-            (require 'company-php)
-            (company-mode t)
-            (add-to-list 'company-backends 'company-ac-php-backend )))
+ '(company-tooltip-selection ((t (:background "grey24" :foreground "white")))))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode nil)
  '(markdown-command "/d/local/bin/multimarkdown.exe")
+ '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (company company-c-headers company-php powerline ac-clang ac-html ac-html-bootstrap ac-html-csswatcher ac-php ac-php-core html5-schema gnugo))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+    (web-mode company-bootstrap js2-mode company company-c-headers company-php powerline ac-php ac-php-core html5-schema gnugo powerline)))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
+
