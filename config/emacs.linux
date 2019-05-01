@@ -14,15 +14,8 @@
 ;; 最大行字符长度
 (setq default-fill-column 80)
 
-;; 禁用滚动条
-(scroll-bar-mode -1)
-
 ;; 禁止显示换行符号
 (global-visual-line-mode 1)
-
-;; 开启 Emacs 行号模式
-(require 'linum)
-(global-linum-mode t)
 
 ;; 光标样式
 (blink-cursor-mode -1)
