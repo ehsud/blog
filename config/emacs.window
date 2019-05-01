@@ -20,7 +20,7 @@
 ;; 设置启动时窗口的高度宽度和工具栏菜单显示方式
 (setq default-frame-alist '((height . 35) (width . 130) (menu-bar-lines . 20) (tool-bar-lines . 0)))
 
-;; 禁止压缩字体，提高中文处理速度
+;; 禁止字体压缩，提高中文处理速度
 (setq inhibit-compacting-font-caches t)
 
 ;; 设置默认字体
@@ -38,19 +38,17 @@
 (delete-selection-mode t)
 
 ;; 最大行字符长度
-;(setq default-fill-column 80)
-
-(set-default 'truncate-lines 0)
+(setq default-fill-column 80)
 
 ;; 禁用滚动条
 (scroll-bar-mode -1)
 
-;; 禁用换行符号
+;; 禁止显示换行符号
 (global-visual-line-mode 1)
 
-;; 开启显示行号
-(require 'linum)
-(global-linum-mode t)
+;; Emacs 显示行号
+(global-display-line-numbers-mode)
+(setq-default display-line-numbers-width nil)
 
 ;; 设置当前行高亮样式
 ;;(require 'hl-line)
@@ -67,7 +65,7 @@
 
 ;; 滚当条滚动时吸附边距设置
 (setq scroll-margin 3
-	  scroll-conservatively 10000)
+      scroll-conservatively 10000)
 
 ;; 禁用警告音
 (setq visible-bell t)
@@ -78,17 +76,18 @@
 ;; 禁用文件自动备份
 (setq-default make-backup-files nil)
 
-;; 代码自动格式化
-(defun indent-buffer ()
-  "Indent the whole buffer."
-  (interactive)
-  (save-excursion
-    (indent-region (point-min) (point-max) nil)))
+;; 开启自动保存
+(auto-save-visited-mode t)
+(setq auto-save-visited-interval 1)
 
-;; Copy current line
-(require 'copy-current-line)
+;; Common function library
+(require 'common)
+
+(require 'switcher)
+(global-set-key (kbd "M-b") 'switcher)
 
 ;; Key binding
+(global-set-key [f2] 'open-config-file)
 (global-set-key [f4] 'kill-this-buffer)
 (global-set-key [f5] 'goto-line)
 (global-set-key [f7] 'indent-buffer)
@@ -96,43 +95,39 @@
 (global-set-key [f11] 'toggle-frame-fullscreen)
 (global-set-key (kbd "C-t") 'set-mark-command)
 (global-set-key (kbd "C-j") 'copy-current-line)
+(global-set-key (kbd "C-u") 'kill-whole-line)
 
 (global-set-key (kbd "M-p") 'previous-buffer)
 (global-set-key (kbd "M-n") 'next-buffer)
+
+(global-set-key (kbd "M-<up>") 'move-line-up)
+(global-set-key (kbd "M-<down>") 'move-line-down)
+
+;; Expand-region
+;;(global-set-key (kbd "C-i") 'er/expand-region)
+;;(global-set-key (kbd "C-,") 'er/contract-region)
 
 (setq backup-inhibited t)
 
 ;; 关闭文件自动保存
 (setq auto-save-default nil)
 
-;; yes/no 简化提示
+;; 简化 yes/no 提示
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; 自动重载被修改文件
 (global-auto-revert-mode t)
 
-;;(abbrev-mode t)
-;;(define-abbrev-table 'global-abbrev-table
-;;    '(("html" "<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n\n</div>\n</html>")))
-
-;; 窗口操作
-;(global-set-key (kbd "M-b")  'windmove-left)
-;(global-set-key (kbd "M-f") 'windmove-right)
-;(global-set-key (kbd "M-p")    'windmove-up)
-;(global-set-key (kbd "M-n")  'windmove-down)
-
+;; yaml configure
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 ;;(setq minibuffer-max-depth nil)
 (setq scroll-margin 1
-	  scroll-conservatively 100)
+      scroll-conservatively 100)
 
 ;; 状态条设置
 (require 'powerline)
 (powerline-default-theme)
-
-;; Expand-region
-(global-set-key (kbd "C-i") 'er/expand-region)
-(global-set-key (kbd "C-,") 'er/contract-region)
 
 ;; Email setting
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
@@ -141,33 +136,33 @@
 (setq user-mail-address "typefo@hotmail.com")
 
 (setq gnus-select-method
-             '(nnimap "Hotmail"
-                      (nnimap-address "outlook.office365.com")
-                      (nnimap-server-port 993)
-                      (nnimap-stream ssl)))
+      '(nnimap "Hotmail"
+               (nnimap-address "outlook.office365.com")
+               (nnimap-server-port 993)
+               (nnimap-stream ssl)))
 
 ;; Emacs lisp language
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 ;; C language
 (setq default-tab-width 4)
-(setq-default indent-tabs-mode nil)
+;;(setq-default indent-tabs-mode nil)
 (setq c-default-style "linux")
 (setq c-basic-offset 4)
 
 (add-hook 'cc-mode-hook '(lambda ()
-    (require 'auto-complete-c-headers)
-    (add-to-list 'ac-sources 'ac-source-c-headers))
-)
+                           (require 'auto-complete-c-headers)
+                           (add-to-list 'ac-sources 'ac-source-c-headers))
+          )
 
 ;; PHP language
 (with-eval-after-load 'php-mode '(require 'php-ext))
 
 (add-hook 'php-mode-hook
           '(lambda ()
-            (require 'company-php)
-            (company-mode t)
-            (add-to-list 'company-backends 'company-ac-php-backend )))
+             (require 'company-php)
+             (company-mode t)
+             (add-to-list 'company-backends 'company-ac-php-backend )))
 
 ;; Javascript language
 (setq auto-mode-alist (append '(("\\.js\\'" . js2-mode)) auto-mode-alist))
@@ -189,10 +184,10 @@
   (scroll-up increment))
 
 ;; org mode
-;(setq org-html-validation-link nil)
-;(setq org-html-doctype "html5")
-;(require 'org-bullets)
-;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+                                        ;(setq org-html-validation-link nil)
+                                        ;(setq org-html-doctype "html5")
+                                        ;(require 'org-bullets)
+                                        ;(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; Compnay mode
 (add-hook 'after-init-hook 'global-company-mode)
@@ -219,7 +214,7 @@
 
 ;; bootstrap for Web development
 (add-hook 'web-mode-hook '(lambda ()
-            (add-to-list 'company-backends 'company-bootstrap)))
+                            (add-to-list 'company-backends 'company-bootstrap)))
 
 ;; Company 颜色主题
 
@@ -250,7 +245,6 @@
  '(org-export-backends (quote (ascii beamer html icalendar latex odt)))
  '(package-selected-packages
    (quote
-    (expand-region web-mode company-bootstrap js2-mode company company-c-headers company-php powerline ac-php ac-php-core html5-schema gnugo powerline)))
+    (projectile yaml-mode web-mode company-bootstrap js2-mode company company-c-headers company-php powerline ac-php ac-php-core html5-schema powerline)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
-

@@ -1,31 +1,78 @@
-(package-initialize)
-
-(add-to-list 'package-archives
-             '("melpa" . "http://stable.melpa.org/packages/") t)
-
+;; 设置本地语言环境编码
 (set-locale-environment "UTF-8")
 (set-language-environment 'UTF-8)
+
+;; 设置禁用启动画面
+(setq inhibit-startup-message t)
+(setq show-paren-style 'parenthesis)
+
+;; 禁止字体压缩，提高中文处理速度
+(setq inhibit-compacting-font-caches t)
+
+(delete-selection-mode t)
+
+;; 最大行字符长度
+(setq default-fill-column 80)
+
+;; 禁用滚动条
+(scroll-bar-mode -1)
+
+;; 禁止显示换行符号
 (global-visual-line-mode 1)
 
+;; 开启 Emacs 行号模式
+(require 'linum)
+(global-linum-mode t)
+
+;; 光标样式
 (blink-cursor-mode -1)
+
+;; 光标样式设置
 (setq-default cursor-type 'box)
+
+;; 禁用警告音
+(setq visible-bell t)
+
+;; 光标颜色设置
 (set-cursor-color "red")
+
+;; 禁用文件自动备份
 (setq-default make-backup-files nil)
 
-;; Hot Key
+;; 快捷键绑定
+(global-set-key [f2] 'open-config-file)
 (global-set-key [f4] 'kill-this-buffer)
 (global-set-key [f5] 'goto-line)
 (global-set-key [f7] 'indent-buffer)
-(global-set-key [f8] 'compile)
+(global-set-key [f8] 'shell)
 (global-set-key [f11] 'toggle-frame-fullscreen)
 (global-set-key (kbd "C-t") 'set-mark-command)
+(global-set-key (kbd "C-u") 'kill-whole-line)
 
+(global-set-key (kbd "M-p") 'previous-buffer)
+(global-set-key (kbd "M-n") 'next-buffer)
+
+(global-set-key (kbd "M-<up>") 'move-line-up)
+(global-set-key (kbd "M-<down>") 'move-line-down)
+
+;; 禁用自动备份文件
 (setq backup-inhibited t)
+
+;; 禁用自动保存
 (setq auto-save-default nil)
+
+;; 简化 Yes/No 提示
 (fset 'yes-or-no-p 'y-or-n-p)
+
+;; 自动重载被修改的文件
+(global-auto-revert-mode t)
+
+(setq scroll-margin 1 scroll-conservatively 100)
+
+;; Emacs lisp language
+(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 ;; C language
 (setq default-tab-width 4)
-(setq-default indent-tabs-mode nil)
 (setq c-default-style "linux")
 (setq c-basic-offset 4)
