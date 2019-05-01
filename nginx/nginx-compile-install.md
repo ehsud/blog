@@ -29,10 +29,10 @@ Nginx 是一个性能出色的 http 服务器和反向代理服务器
 
     $ cd nginx-1.12.0
     $ ./configure --prefix=/usr/local/nginx --with-threads --with-file-aio --with-http_ssl_module
-              --with-http_v2_module
-              --without-mail_pop3_module
-              --without-mail_imap_module
-              --without-mail_smtp_module
+                  --with-http_v2_module
+                  --without-mail_pop3_module
+                  --without-mail_imap_module
+                  --without-mail_smtp_module
 
 如果在执行 configure 环境检测过程中报错，一般情况下可能是缺少或者没有安装相关的依赖包
 
