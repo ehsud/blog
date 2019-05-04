@@ -37,16 +37,18 @@
 
 (delete-selection-mode t)
 
-;; 最大行字符长度
-(setq default-fill-column 80)
-
 ;; 禁用滚动条
 (scroll-bar-mode -1)
 
 ;; 禁止显示换行符号
-(global-visual-line-mode 1)
+(global-visual-line-mode 0)
+(set-default 'truncate-lines t)
 
-;; Emacs 显示行号
+;; Old line number mode for Emacs (version <= 26.0.50)
+;;(require 'linum)
+;;(global-linum-mode t)
+
+;; New line number mode for Emacs (version > 26)
 (global-display-line-numbers-mode)
 (setq-default display-line-numbers-width nil)
 
@@ -76,7 +78,7 @@
 ;; 禁用文件自动备份
 (setq-default make-backup-files nil)
 
-;; 开启自动保存
+;; Auto Save
 (auto-save-visited-mode t)
 (setq auto-save-visited-interval 1)
 
@@ -86,12 +88,15 @@
 (require 'switcher)
 (global-set-key (kbd "M-b") 'switcher)
 
+;; shell projectile
+(setq-default explicit-shell-file-name "c:/Program Files/Git/usr/bin/bash.exe")
+
 ;; Key binding
 (global-set-key [f2] 'open-config-file)
 (global-set-key [f4] 'kill-this-buffer)
 (global-set-key [f5] 'goto-line)
 (global-set-key [f7] 'indent-buffer)
-(global-set-key [f8] 'eshell)
+(global-set-key [f8] 'shell)
 (global-set-key [f11] 'toggle-frame-fullscreen)
 (global-set-key (kbd "C-t") 'set-mark-command)
 (global-set-key (kbd "C-j") 'copy-current-line)
@@ -112,11 +117,21 @@
 ;; 关闭文件自动保存
 (setq auto-save-default nil)
 
-;; 简化 yes/no 提示
+;; yes/no 简化提示
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; 自动重载被修改文件
 (global-auto-revert-mode t)
+
+;;(abbrev-mode t)
+;;(define-abbrev-table 'global-abbrev-table
+;;    '(("html" "<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n\n</div>\n</html>")))
+
+;; 窗口操作
+;;(global-set-key (kbd "M-b")  'windmove-left)
+;;(global-set-key (kbd "M-f") 'windmove-right)
+;;(global-set-key (kbd "M-p")    'windmove-up)
+;;(global-set-key (kbd "M-n")  'windmove-down)
 
 ;; yaml configure
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
