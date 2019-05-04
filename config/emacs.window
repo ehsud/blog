@@ -40,7 +40,7 @@
 ;; 禁用滚动条
 (scroll-bar-mode -1)
 
-;; 禁止显示换行符号
+;; 禁止文本换行
 (global-visual-line-mode 0)
 (set-default 'truncate-lines t)
 
