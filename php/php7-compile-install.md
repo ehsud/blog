@@ -13,9 +13,9 @@ description: 在 CentOS 7 环境下编译安装 PHP 7
 
 #### 开始编译 PHP 7
 
-    $ wget http://cn2.php.net/distributions/php-7.2.2.tar.gz
-    $ tar -zxvf php-7.2.2.tar.gz
-    $ cd php-7.2.2
+    $ wget http://cn2.php.net/distributions/php-7.2.18.tar.gz
+    $ tar -zxvf php-7.2.18.tar.gz
+    $ cd php-7.2.18
     $ ./configure --prefix=/usr/local/php
                 --enable-fpm
                 --with-openssl
