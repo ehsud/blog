@@ -362,14 +362,14 @@ awk 声明的变量可以在任何多个花括号脚本中使用
     There is nothing either good or bad, but thinking makes it so
     There’s a special providence in the fall of a sparrow
 
-#### 使用正则表达式配一个包含字母 t 和字母 `e` ，并且 `t` 和 `e` 中间只能有任意单个字符的行
+#### 使用正则表达式匹配一个包含字母 `t` 和字母 `e` ，并且 `t` 和 `e` 中间只能有任意单个字符的行
 
     $ awk '/t.e/{print $0}' poetry.txt
     There is nothing either good or bad, but thinking makes it so
     There’s a special providence in the fall of a sparrow
     No matter how dark long, may eventually in the day arrival
 
-如果只想匹配单纯的字符串 "t.e"， 那正则表达式就是这样的 `/t\.e/` ，用反斜杠来转义 `.` 符号
+如果只想匹配单纯的字符串 `t.e`， 那正则表达式就是这样的 `/t\.e/` ，用反斜杠来转义 `.` 符号
 因为 `.` 在正则表达式里面表示任意单个字符。
 
 #### 使用正则表达式来匹配所有以 "The" 字符串开头的行
