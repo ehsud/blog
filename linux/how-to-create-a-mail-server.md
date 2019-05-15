@@ -66,7 +66,7 @@ DKIM 电子邮件验证标准、又称域名密钥识别邮件标准，用来防
 
 事实上 SPF 记录配置非常简单，因为它是一种 DNS 记录，所以需要在你的域名服务商系统中去配置即可。例如以新网为例
 
-![spf.jpg](../assets/img/spf.jpg)
+![spf.jpg](/assets/img/spf.jpg)
 
 也就是添加一条 TXT 记录类型，域名为 example.com ，记录值为 `v=spf1 ip4:66.249.79.75 ~all`，其中 `ip4:` 后面为你的服务器 IP 地址
 
@@ -103,4 +103,4 @@ DKIM 的也是一种 DNS 记录。不过可能稍微复杂一点，因为 DKIM �
 
 6) 然后在域名 DNS 管理平台，添加一个 TXT 类型记录即可，值为上面提取出来的 DKIM 记录值
 
-![spf.jpg](../assets/img/dkim.jpg)
+![spf.jpg](/assets/img/dkim.jpg)
