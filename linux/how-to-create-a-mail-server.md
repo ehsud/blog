@@ -104,3 +104,7 @@ DKIM 的也是一种 DNS 记录。不过可能稍微复杂一点，因为 DKIM �
 6) 然后在域名 DNS 管理平台，添加一个 TXT 类型记录即可，值为上面提取出来的 DKIM 记录值
 
 ![dkim.jpg](/assets/img/dkim.jpg)
+
+
+文章未完待续。。。。
+
