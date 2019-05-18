@@ -53,6 +53,7 @@ ffmpeg 使用因特尔的 QSV 编解码使用示例，包括 H264 的解码与�
 使用 CQP 模式对一个 H264 视频进行转码
 
     ffmpeg -init_hw_device qsv=hw -filter_hw_device hw -i input.mp4 -vf hwupload=extra_hw_frames=64,format=qsv -c:v h264_qsv -q 25 output.mp4
+
 ### ffmpeg 在多个 GPU 设备上的使用
 
 ffmpeg 当中可以使用 `-qsv_device` 参数设置默认使用哪个 GPU 设备，比如当你的系统中拥有 Intel、 AMD 或者 Nvidia 等多个设备时，可能需要这个自定义设置参数。例如指定一个 `/dev/dri/renderD128` 设备为 QSV 的默认 GPU 设备来进行转码
