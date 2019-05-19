@@ -12,7 +12,7 @@ ffmpeg 使用因特尔的 QSV 编解码使用示例，包括 H264 的解码与�
 
 查看 ffmpeg 中支持 qsv 解码的视频格式有哪些
 
-    ffmpeg -decoders | findstr grep qsv
+    ffmpeg -decoders | findstr qsv
 
 将一个 H264 编码的视频转码成 yuv420p 像素格式的 RAW 文件
 
