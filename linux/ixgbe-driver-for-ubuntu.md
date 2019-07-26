@@ -108,4 +108,8 @@ $ update-initramfs -u -k all
 
 当然也可将 ixgbe 模块参数添加到 /etc/modprobe.d/ixgbe.conf 配置文件中，以确保开机重启后模块能正常工作
 
-    echo "options ixgbe allow_unsupported_sfp=1" > /etc/modprobe.d/ixgbe.conf
+    $ echo "options ixgbe allow_unsupported_sfp=1" > /etc/modprobe.d/ixgbe.conf
+
+当然最后别忘记更新 initramfs
+
+    $ update-initramfs -u -k all
