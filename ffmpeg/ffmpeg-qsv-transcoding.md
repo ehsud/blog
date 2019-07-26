@@ -48,7 +48,7 @@ QSV 是 Intel 公司的 Quick Sync Video 快速视频同步技术，主要用于
 
     ffmpeg -init_hw_device qsv=hw -filter_hw_device hw -f rawvideo -pix_fmt yuv420p -s:v 1920x1080 -i input.yuv -vf hwupload=extra_hw_frames=64,format=qsv -c:v h264_qsv -b:v 5M output.mp4
 
-### ffmpeg 使用 QSV 进行视频转码
+### 在 ffmpeg 中使用 QSV 进行视频转码
 
 使用 CBR 模式对一个 H264 视频以 5Mbps 的码率进行转码
 
