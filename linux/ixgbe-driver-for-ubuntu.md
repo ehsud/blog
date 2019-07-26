@@ -34,12 +34,12 @@ Intel 的 ixgbe 驱动主要用于 Intel 公司的千兆以及万兆以太网卡
 
 在使用 modinfo 工具查询的结果中，我们可以查找是否有数字编号为 `8086:100e` 的网卡型号列表
 
-    filename:       /lib/modules/3.13.0-32-generic/kernel/drivers/net/ethernet/intel/e1000/e1000.ko
-    version:        7.3.21-k8-NAPI
+    filename:       /lib/modules/3.13.0-32-generic/kernel/drivers/net/ethernet/intel/ixgbe/ixgbe.ko
+    version:        3.15.1-k
     license:        GPL
-    description:    Intel(R) PRO/1000 Network Driver
+    description:    Intel(R) 10 Gigabit PCI Express Network Driver
     author:         Intel Corporation, <linux.nics@intel.com>
-    srcversion:     788D475D9DE694B0A581A3D
+    srcversion:     75370FD447E0C306FEDB41F
     alias:          pci:v00008086d00001012sv*sd*bc*sc*i*
     alias:          pci:v00008086d00001011sv*sd*bc*sc*i*
     alias:          pci:v00008086d00001010sv*sd*bc*sc*i*
@@ -58,6 +58,7 @@ Intel 的 ixgbe 驱动主要用于 Intel 公司的千兆以及万兆以太网卡
 
 如果当前系统中的 ixgbe 驱动不支持你的网卡，我们就需要手动来安装新版本的 ixgbe 驱动
 ​
+
 1) 安装系统 Linux 内核头文件
 
     $ apt-get install linux-headers-$(uname -r)
