@@ -12,7 +12,7 @@ tags: [ffmpeg, intel, windows]
 
 QSV 是 Intel 公司的 Quick Sync Video 快速视频同步技术，主要用于视频处理与转码，市面上大部分最新的因特尔 CPU 都内置了 QSV 模块，它就像一个 CPU 内置的 GPU 显卡模块。你不需要单独购买或安装它。只要你用的是因特尔的 CPU 你就拥有她。QSV 模块可以用来快速的编码和解码 H264 视频数据，也就是说在 ffmpeg 中可以使用它来进行视频硬件加速转码
 
-### ffmpeg 使用 QSV 进行视频解码
+### 在 ffmpeg 中使用 QSV 进行视频解码
 
 查看 ffmpeg 中支持 qsv 解码的视频格式有哪些
 
@@ -34,7 +34,7 @@ QSV 是 Intel 公司的 Quick Sync Video 快速视频同步技术，主要用于
 
     ffmpeg -hwaccel qsv -c:v hevc_qsv -load_plugin hevc_hw -i input.mp4 -vf hwdownload,format=p010 -pix_fmt p010le output.yuv
 
-### ffmpeg 使用 QSV 进行视频编码
+### 在 ffmpeg 中使用 QSV 进行视频编码
 
 查看 ffmpeg 中支持 qsv 编码的视频格式有哪些
 
