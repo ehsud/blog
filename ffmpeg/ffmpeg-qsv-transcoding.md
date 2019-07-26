@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ffmpeg 使用 QSV 进行视频转码
+title: ffmpeg 使用 QSV 硬件加速视频转码
 description: 讲解 ffmpeg 使用 QSV 进行视频转码
 categories: [ffmpeg]
 tags: [ffmpeg, intel, windows]
