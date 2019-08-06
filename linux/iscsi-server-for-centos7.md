@@ -60,7 +60,7 @@ description: 如何在 Linux 下搭建一个 ISCSI 存储服务器
 
     Created block lun0 with size 10485760
 
-2) 创建一个 iscsi 目标 iqn
+**2)** 创建一个 iscsi 目标 iqn
 
     /> cd /iscsi
     /> create
@@ -72,12 +72,12 @@ description: 如何在 Linux 下搭建一个 ISCSI 存储服务器
 
 其中 `iqn.2003-01.org.linux-iscsi.island.x8664:sn.a0bed4ed5f7a` 表示 targetcli 自动创建的 iqn 名称，当然也可以自己手动指定一个 iqn 名称，当手动指定 qin 名称时一定要按照标准的 iqn 格式，否则有些系统无法使用或者报错，后面所有的使用和配置都会要使用这个 iqn 名称
 
-3) 将 lun0 绑定到新创建的 iqn 里面
+**3)** 将 lun0 绑定到新创建的 iqn 里面
 
     /> cd /iscsi/iqn.2003-01.org.linux-iscsi.server.x8664:sn.a0bed4ed5f7a/tpg1/luns
     /> create /backstores/block/lun0
 
-4) 添加客户端到 acls 访问控制列表中
+**4)** 添加客户端到 acls 访问控制列表中
 
 首先获取客户端的 iqn 名称，然后执行下面的命令将其添加到 acl 访问控制列表
 
@@ -86,9 +86,12 @@ description: 如何在 Linux 下搭建一个 ISCSI 存储服务器
 
 默认 iscsi 服务器可以被任何客户端访问，这样是非常不安全的，所以需要配置 acl 访问列表
 
-5) 最后配置完成后，将配置保存到配置文件
+**5)** 最后配置完成后，将配置保存到配置文件，并启动 target.service 服务
 
     /> saveconfig
+    /> exit
+
+    $ systemctl start target.service
 
 为了在重启后 iscsi 服务能正常运行，需要将 target.service 服务设置为开机启动
 
