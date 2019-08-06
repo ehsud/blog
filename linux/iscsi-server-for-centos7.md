@@ -33,7 +33,7 @@ description: 如何在 Linux 下搭建一个 ISCSI 存储服务器
 
     />
 
-因为 targetcli 工具可以使用命令行模式、也可以使用交互模式，而默认是交互模式，所以启动后会进入一个交互式操作界面，targetcli 以目录结构的方式显示各种结构信息，我们可以使用 ls 命令来显示当前的 iscsi 配置信息，也可以使用 cd 命令进入某个目录下
+因为 targetcli 工具可以使用命令行模式、也可以使用交互模式，而默认是交互模式，所以启动后会进入一个交互式操作界面，targetcli 以目录结构的方式显示各种配置信息，我们可以使用 ls 命令来显示当前的 iscsi 配置信息，也可以使用 cd 命令进入某个目录下
 
     /> ls
 
@@ -53,7 +53,7 @@ description: 如何在 Linux 下搭建一个 ISCSI 存储服务器
 
 ### 创建一个 LUN 存储单元
 
-1) 首先将一个 /dev/sdb 的硬盘创建为 iscsi 逻辑存储单元
+**1)** 首先将一个 /dev/sdb 的硬盘创建为 iscsi 逻辑存储单元
 
     /> cd /backstores/block
     /> create lun0 /dev/sdb
