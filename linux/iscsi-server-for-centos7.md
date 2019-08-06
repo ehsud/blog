@@ -11,7 +11,7 @@ description: 如何在 Linux 下搭建一个 ISCSI 存储服务器
 
 首先 scsi 是一种硬盘存储设备接口，类似 stat 、sas 等。而 iscsi 是一种源于早期的 scsi 存储接口的新协议，早期的 scsi 接口只是用于本地接口设备，不能跨网络主机共享。后来 IBM 等大公司开发了一种能跑在以太网上的 scsi 协议，也就是今天我们要讲的 iscsi 协议，iscsi 的原理就是将原始的 scsi 协议封装在 TCP/IP 以太网协议里面，基于 TCP/IP 来实现跨网络主机共享和访问。
 
-通常在 iscsi 技术中，分为 iscsi initiator (会话发起器) 和 iscsi target (目标存储位置) 这两个概念，因为 iscsi 是一种 C/S 结构工作模式，也就是 iscsi initiator 是客户端，iscsi target 是服务端。通常我们在 iscsi 服务器端创建一些 LUN 的逻辑存储单元，然后其他客户端服务器通过 iscsi initiator 来连接此 iscsi target 服务端挂载和使用这些 LUN 存储设备
+通常在 iscsi 技术中，分为 iscsi initiator (会话发起器) 和 iscsi target (目标存储位置) 这两个概念，因为 iscsi 是一种 C/S 结构工作模式，也就是 iscsi initiator 是客户端，iscsi target 是服务器端。通常我们在 iscsi 服务器端创建一些 LUN 的逻辑存储单元，然后其他客户端服务器通过 iscsi initiator 来连接此 iscsi target 服务端挂载和使用这些 LUN 存储设备
 
 ### 安装 targetcli 工具
 
