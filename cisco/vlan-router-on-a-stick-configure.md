@@ -8,7 +8,7 @@ description: 用于 Cisco 设备的 VLAN 与单臂路由配置
 
 VLAN（Virtual Local Area Network）的全称为 "虚拟局域网"，是一种不受物理位置限制，并且基于接口的逻辑上的局域网络。VLAN 通常称之为 `802.1q` 协议，是一种国际 VLAN 标准协议，市面上大部分品牌设备都支持。每一个 VLAN 属于一个独立的广播域，不同 VLAN 之间默认无法相互通信
 
-### 什么是 access 与 trunk 接口模式
+### 什么是 access 与 trunk 模式 ？
 
 在 VLAN 网络中，主要有两种接口模式，access 用于终端电脑设备接入使用的接口模式，另外一种就是 trunk 中继接口模式，trunk 接口主要用于不同交换机之间使用，在 trunk 接口上可以设置让某些 VLAN 的数据通过 trunk 接口传输到其他交换机上，当然默认不同交换机上相同的 VLAN 可以通过 trunk 相互通信，而不同交换机上不同的 VLAN 默认不能相互通信
 
