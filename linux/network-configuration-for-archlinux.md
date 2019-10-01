@@ -1,0 +1,50 @@
+---
+layout: post
+title: Archlinux 网络配置方法
+description: 详解 Archlinux 下的网络配置方法
+---
+
+### Archlinux 网络配置方法
+
+在 Archlinux 下最简单的网络配置方式是使用 `systemd-networkd` 服务，默认配置文件位于 `/etc/systemd/network` 下
+
+使用 `systemctl` 开启 `systemd-networkd` 服务
+
+```
+$ systemctl enable systemd-networkd
+```
+
+#### 配置 DHCP 动态 IP 地址
+
+编辑 `/etc/systemd/network/enp0s3.network` 网卡配置文件
+
+```
+[Match]
+Name=enp0s3
+
+[Network]
+DHCP=ipv4
+```
+
+#### 配置 STATIC 静态 IP 地址
+
+编辑 `/etc/systemd/network/enp0s3.network` 网卡配置文件
+
+```
+[Match]
+Name=enp0s3
+
+[Network]
+Address=192.168.1.100/24
+Gateway=192.168.1.1
+DNS=8.8.8.8
+DNS=8.8.4.4
+```
+
+#### 重启网络服务，使配置生效
+
+修改网卡配置文件之后，需要重启 `systemd-networkd` 服务使配置生效
+
+```
+$ systemctl restart systemd-networkd
+```
