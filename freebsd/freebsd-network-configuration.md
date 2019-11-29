@@ -39,7 +39,7 @@ $ sysrc ifconfig_em0="DHCP"
 第一种方法使用 `netstart` 也是最简单的方法
 
 ```
-/etc/netstart
+$ /etc/netstart
 ```
 
 第二种方法使用 `service` 工具重启 `netif` 和 `routing` 服务
