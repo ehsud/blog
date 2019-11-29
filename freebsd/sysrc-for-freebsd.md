@@ -1,6 +1,6 @@
 ---
 layout: post
-title: sysrc 系统配置工具
+title: freebsd 的 sysrc 系统配置工具
 description: FreeBSD 的 sysrc rc.conf 文件配置工具
 ---
 
