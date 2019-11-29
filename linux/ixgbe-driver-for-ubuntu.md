@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 在 Ubuntu 下安装 Intel ixgbe 网卡驱动
-description: Linux 下的 Intel ixgbe 网卡驱动的安装方法
+title: Intel ixgbe 网卡驱动安装 for Ubuntu
+description: Intel ixgbe 网卡驱动安装 for Ubuntu
 ---
 
 大部分的 Linux 发行版会内置 Intel 以及其他厂商的各种网卡驱动。然而很多公司不愿意升级到新系统，从而导致很多新的硬件设备无法正常工作，这个时候就需要我们手动来编译和安装网卡驱动。
