@@ -53,6 +53,8 @@ $ sysrc cloned_interfaces+="em1"
 cloned_interfaces="em0 em1"
 ```
 
+当然如果值的第一个字符是 Alpha 字母，也就是 `A-Z`、`a-z`、`0-9`、`()` `.` `/` 等字符，sysrc 会默认使用空格作为分隔符
+
 **6. 删除某个选项中的一个值，跟上面的类似，只不过是使用 `name-=value`**
 
 ```
