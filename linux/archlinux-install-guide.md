@@ -13,7 +13,7 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
 首先给硬盘进行分区，可以使用 cfdisk、parted 等工具来进行，当然这里使用 parted 工具 
 
     $ parted /dev/sda
-    $ mkpart primary ext4 0 1024MiB
+    $ mkpart primary ext4 0% 1024MiB
     $ mkpart primary ext4 1024MiB 100%
     $ set 1 boot on
     $ quit
