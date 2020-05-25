@@ -4,7 +4,7 @@ title: rport 与 received 在 voip 中的作用
 description: 使用 rport 与 received 在 voip 中解决 NAT 问题
 ---
 
-rport，received 用于解决 NAT 网络问题，假设 freeswitch 在公网上， 话机客户端在内网，并且话机支持 rport 功能，网络结构如下图
+在 SIP 协议中 rport 和 received 主要用于解决 NAT 网络问题，假设 freeswitch 在公网上， 话机客户端在内网，并且话机支持 rport 功能，网络结构如下图
 
 
 
