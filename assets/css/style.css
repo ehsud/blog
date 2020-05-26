@@ -42,7 +42,6 @@ ul {
 }
 
 li {
-    list-style-type: none;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
