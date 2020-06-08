@@ -32,7 +32,7 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
 
 **将分区表文件系统信息写入到刚安装好的系统 fstab 文件**
 
-    $ genfstab -U -p /mnt >> /mnt/etc/fstab
+    $ genfstab -U /mnt >> /mnt/etc/fstab
 
 **chroot 切换到新系统**
 
