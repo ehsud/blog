@@ -37,7 +37,7 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
 
 archlinux 使用 pacstrap 工具来安装核心系统和各种组件
 
-    $ pacstrap -i /mnt base base-devel
+    $ pacstrap /mnt base linux linux-firmware
 
 **将分区表文件系统信息写入到刚安装好的系统 fstab 文件**
 
