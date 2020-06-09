@@ -20,7 +20,7 @@ tags: [linux, archlinux,]
 
 ### 开始配置
 
-* 首先需要创建一个名称为 br0 的虚拟网桥
+**1. 首先需要创建一个名称为 br0 的虚拟网桥**
 
 ```
 $ ip link add name br0 type bridge
@@ -28,7 +28,7 @@ $ ip link add name br0 type bridge
 
 > 提示：网桥名称可以自由定义
 
-* 将 br0 网桥设置为启用状态
+**2. 将 br0 网桥设置为启用状态**
 
 ```
 $ ip link set br0 up
@@ -40,7 +40,7 @@ $ ip link set br0 up
 $ ip addr add 192.168.10.1/24 dev br0
 ```
 
-* 将现有的三块网卡状态设置为启用
+**3. 将现有的三块网卡状态设置为启用**
 
 ```
 $ ip link set enp10 up
@@ -48,7 +48,7 @@ $ ip link set enp20 up
 $ ip link set enp30 up
 ```
 
-* 将现有三块网卡加入到 br0 网桥中
+**4. 将现有三块网卡加入到 br0 网桥中**
 
 ```
 $ ip link set enp10 master br0
@@ -60,7 +60,7 @@ $ ip link set enp30 master br0
 
 ### 网桥的管理
 
-* 如何查看已经加入到网桥的网卡配置信息
+**1. 如何查看已经加入到网桥的网卡配置信息**
 
 ```
 $ bridge link
@@ -68,7 +68,7 @@ $ bridge link
 
 `bridge` 命令属于 iproute2 软件包中的一个工具，我们可以用它来查看网桥的配置信息
 
-* 将一个网卡从网桥中删除，比如 enp10 网卡
+**2. 将一个网卡从网桥中删除，比如 enp10 网卡**
 
 ```
 $ ip link set enp10 nomaster
@@ -80,7 +80,7 @@ $ ip link set enp10 nomaster
 $ ip link set enp10 down
 ```
 
-* 如何将 br0 网桥删除，方法如下
+**3. 如何将 br0 网桥删除，方法如下**
 
 ```
 $ ip link delete br0 type bridge
