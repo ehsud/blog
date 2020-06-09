@@ -41,6 +41,12 @@ DNS=8.8.8.8
 DNS=8.8.4.4
 ```
 
+如果 enp0s3.network 中添加了 DNS 选项则需要同时启用 `systemd-resolved.service` 服务配合使用
+
+```
+$ systemctl enable systemd-resolved.service
+```
+
 #### 重启网络服务，使配置生效
 
 修改网卡配置文件之后，需要重启 `systemd-networkd` 服务使配置生效
