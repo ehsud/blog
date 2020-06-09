@@ -56,13 +56,7 @@ $ ip link set enp20 master br0
 $ ip link set enp30 master br0
 ```
 
-以上配置就将 `enp10`、`enp20` 、`enp30` 三块网卡加入到 `br0` 网桥之中实现二层交换机的功能。当然也可以给这三块网卡分别配置一个 IP 地址
-
-```
-$ ip addr add 192.168.10.10/24 dev enp10
-$ ip addr add 192.168.10.20/24 dev enp20
-$ ip addr add 192.168.10.30/24 dev enp30
-```
+以上配置就将 `enp10`、`enp20` 、`enp30` 三块网卡加入到 `br0` 网桥之中实现二层交换机的功能。
 
 ### 网桥的管理
 
