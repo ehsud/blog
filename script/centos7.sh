@@ -27,3 +27,8 @@ echo '* soft nofile 102400' >> /etc/security/limits.conf
 echo '* hard nofile 102400' >> /etc/security/limits.conf
 echo '* soft nproc unlimited' >> /etc/security/limits.conf
 echo '* hard nproc unlimited' >> /etc/security/limits.conf
+
+# yum repos
+curl http://mirrors.163.com/.help/CentOS7-Base-163.repo -o /etc/yum.repos.d/CentOS-Base.repo
+yum clean all
+yum makecache
