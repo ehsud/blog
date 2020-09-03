@@ -1,13 +1,12 @@
 ---
 layout: post
-title: ffmpeg 批量下载 m3u8 视频 windows 版
-description: ffmpeg 批量下载 m3u8 视频 windows 版脚本
+title: ffmpeg 批量下载视频脚本 windows 版
+description: ffmpeg 批量下载视频脚本 windows 版
 categories: [ffmpeg]
-tags: [ffmpeg, m3u8, windows]
+tags: [ffmpeg, m3u8, batch, windows]
 ---
 
-
-这个批处理脚本的功能是使用 ffmpeg 来批量下载视频网站上的 m3u8 视频文件，此批处理脚本适用于 Windows 系统
+这个批处理脚本的功能是使用 ffmpeg 来批量下载视频网站上的 m3u8 视频文件，当然也适用于其他非 m3u8 的在线视频，此批处理脚本适用于 Windows 系统
 
 ### ffmpeg 脚本使用方法
 
