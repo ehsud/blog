@@ -56,6 +56,8 @@ dbpass=123456
 requirements=warn
 ```
 
+此处主要配置 Realtime 的数据连接信息，比如数据库用户、密码、数据库名称
+
 2. 修改 extconfig.conf 配置文件
 
 ```
@@ -68,6 +70,8 @@ ps_endpoint_id_ips => pgsql,asterisk
 ps_outbound_publishes => pgsql,asterisk
 ps_inbound_publications = pgsql,asterisk
 ```
+
+此处 extconfig.conf 主要用于配置 realtime 的数据库表映射
 
 3. 修改 sorcery.conf 配置文件
 
