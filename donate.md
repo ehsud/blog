@@ -9,4 +9,4 @@ tags: [typefo, donate]
 目前作者为自由开发者，如果这里的内容对您有所帮助，您可以考虑使用以下方式给予捐助，鄙人将不胜感激。。
 
 
-![donate](assets/img/donate.png)
+![donate](/assets/img/donate.png)
