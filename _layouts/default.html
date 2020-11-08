@@ -18,31 +18,32 @@
                 <div class="col">
                     <h1 class="h1 text-light">{{ site.title }}</h1>
                     <h2 class="h3 text-light">{{ site.description }}</h2>
+		    <span class="mt-3 text-light">如果您愿意，可以考虑 <a href="/donate.html">❤捐助</a> 作者</span>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="container-fluid">
-        <div class="container my-5">
-            <div class="content">
-                <ul>
-                  {% for page in site.pages %}
-                    {% if page.title %}
-                      <li class="my-1">
-                        <a class="text-dark" href="{{ page.url }}"><i class="icon-file-text-alt"></i> {{ page.title }}</a>
-                      </li>
-                    {% endif %}
-                  {% endfor %}
-                </ul>
-            </div>
+      <div class="container my-5">
+        <div class="content">
+          <ul>
+            {% for page in site.pages %}
+            {% if page.title %}
+            <li class="my-1">
+              <a class="text-dark" href="{{ page.url }}"><i class="icon-file-text-alt"></i> {{ page.title }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
         </div>
+      </div>
     </div>
 
     <div class="footer container-fluid mt-auto bg-dark">
-        <div class="container py-3 text-center">
-            {% include footer.html %}
-        </div>
+      <div class="container py-3 text-center">
+        {% include footer.html %}
+      </div>
     </div>
 </body>
 </html>
