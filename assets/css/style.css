@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
 .content img {
     display: block;
     width: 85%;
-    margin: 0 auto;
+    margin: 3rem auto;
 }
 
 .content h3 {
