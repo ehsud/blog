@@ -10,17 +10,30 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
 
 ### 首先准备硬盘分区
 
-首先给硬盘进行分区，可以使用 cfdisk、parted 等工具来进行，当然这里使用 parted 工具 
+首先给硬盘进行分区，可以使用 cfdisk、parted 等工具来进行，这里使用 parted 工具 作为演示
 
     $ parted /dev/sda
+    $ mklabel msdos
     $ mkpart primary ext4 0% 1024MiB
     $ mkpart primary ext4 1024MiB 100%
     $ set 1 boot on
     $ quit
 
-如果使用的是 SSD 硬盘，建议使用下面的命令，来创建分区时使用分区对齐。使用分区对齐能优化 SSD 硬盘的读写性能
+> 技巧提示！
 
-    $ mkpart primary ext4 0% 1024MiB
+- mkpart primary ext4 0% 1024MiB
+
+如果使用的是 SSD 硬盘，建议在创建第一个分区时采用自动分区对齐。以此能够优化 SSD 硬盘的读写性能
+
+- 优化 SSD 硬盘的 OP 预留空间
+
+通常 SSD 硬盘厂商会在硬盘出厂时预留小部分对用户不可见的 OP 预留空间，以此来优化 SSD 硬盘的均衡损耗，我们在分区时可以再保留一个 10% 到 25% 大小的空闲硬盘空间作为 OP 预留空间，比如我们在分区时可以设置分区的结束位置为 85%，以保证有 15% 的预留空间不被划分
+
+```
+$ mkpart primary ext4 0% 85%
+```
+
+
 
 **格式化分区**
 
