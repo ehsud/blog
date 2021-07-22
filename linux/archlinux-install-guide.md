@@ -90,17 +90,23 @@ archlinux 使用 pacstrap 工具来安装核心系统和各种组件
     $ grub-install --target=i386-pc /dev/sda
     $ grub-mkconfig -o /boot/grub/grub.cfg
 
-**安装 grub 主题 (可选)**
+**安装一个 grub 主题 (可选)**
 
-    $ pacman -Sy deepin-grub2-themes
+    $ pacman -Sy grub-theme-vimix
 
-编辑配置文件 /etc/default/grub
+编辑 grub 配置文件 /etc/default/grub
 
-    GRUB_THEME="/boot/grub/themes/deepin/theme.txt"
+    GRUB_THEME="/usr/share/grub/themes/Vimix/theme.txt"
 
-重新生成配置文件
+重新生成 grub 配置文件
 
-    $grub-mkconfig -o /boot/grub/grub.cfg
+    $ grub-mkconfig -o /boot/grub/grub.cfg
+
+设置 root 用户密码
+
+```
+$ passwd
+```
 
 到此为止，一台 Archlinux 服务器就安装成功了。当然如果你需要安装桌面环境来使用，你只需要完成下面这些组件的安装即可
 

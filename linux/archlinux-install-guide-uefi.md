@@ -70,7 +70,7 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
 
     $ mkinitcpio -p linux
 
-**配置开启 pacman 源** /etc/pacman.conf
+**配置开启 pacman 源** /etc/pacman.conf  (可选)
 
     [multilib]
     Include = /etc/pacman.d/mirrorlist
@@ -81,17 +81,23 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
     $ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub --recheck
     $ grub-mkconfig -o /boot/grub/grub.cfg
 
-**安装 grub 主题 (可选)**
+**安装一个 grub 主题 (可选)**
 
-    $ pacman -Sy deepin-grub2-themes
+    $ pacman -Sy grub-theme-vimix
 
-编辑配置文件 /etc/default/grub
+编辑 grub 配置文件 /etc/default/grub
 
-    GRUB_THEME="/boot/grub/themes/deepin/theme.txt"
+    GRUB_THEME="/usr/share/grub/themes/Vimix/theme.txt"
 
-重新生成配置文件
+重新生成 grub 配置文件
 
     $grub-mkconfig -o /boot/grub/grub.cfg
+
+设置 root 用户密码
+
+```
+$ passwd
+```
 
 **安装声音驱动**
 
@@ -107,13 +113,15 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
 
 **安装对应显卡芯片的驱动**
 
-1. 通用：      xf86-video-vesa
-2. Intel 显卡：xf86-video-intel
-3. nVidia 显卡：
-  - GeForce 7 以上：xf86-video-nouveau；nvidia
-  - GeForce 6/7：xf86-video-nouveau；nvidia-304xx
+- 通用： xf86-video-vesa
 
-4. AMD/ATI 显卡：xf86-video-ati
+- Intel 显卡：xf86-video-intel
+
+- nVidia 显卡：
+  1. GeForce 7 以上：xf86-video-nouveau；nvidia
+  2. GeForce 6/7：xf86-video-nouveau；nvidia-304xx
+
+- AMD/ATI 显卡：xf86-video-ati
 
 比如安装 intel 显卡驱动
 
@@ -165,9 +173,23 @@ ArchLinux 是一个适合动手能力较强的 Linux 高级用户使用的发行
 KDM、GDM、LightDM 等显示管理器的用户，向 ~/.xprofile添加以上命令。
 使用 startx 或 slim 的用户，向 ~/.xinitrc 添加以上命令。
 
-**安装输入法引擎**
+**安装 google 拼音输入法引擎**
 
-    拼音输入法：      fcitx-cloudpinyin fcitx-googlepinyin fcitx-libpinyin fcitx-sunpinyin  
-    五笔、郑码输入法：fcitx-table-extra
+- 拼音输入法
 
-    $ pacman -Sy fcitx-googlepinyin
+  1. fcitx-cloudpinyin
+
+  2. fcitx-googlepinyin
+
+  3. fcitx-libpinyin
+
+  4. fcitx-sunpinyin  
+
+- 五笔、郑码输入法
+
+  1. fcitx-table-extra
+
+```
+$ pacman -Sy fcitx-googlepinyin
+```
+
