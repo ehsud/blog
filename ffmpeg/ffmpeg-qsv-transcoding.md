@@ -62,7 +62,7 @@ QSV 是 Intel 公司的 Quick Sync Video 快速视频同步技术，主要用于
 
 ffmpeg 当中可以使用 `-qsv_device` 参数设置默认使用哪个 GPU 设备，比如当你的系统中拥有 Intel、 AMD 或者 Nvidia 等多个设备时，可能需要这个自定义设置参数。例如指定一个 `/dev/dri/renderD128` 设备为 QSV 的默认 GPU 设备来进行转码
 
-    fmpeg -hwaccel qsv -qsv_device /dev/dri/renderD128 -c:v h264_qsv -i input.mp4 -c:v h264_qsv output.mp4
+    ffmpeg -hwaccel qsv -qsv_device /dev/dri/renderD128 -c:v h264_qsv -i input.mp4 -c:v h264_qsv output.mp4
 
 ### 参考文档 Reference
 
