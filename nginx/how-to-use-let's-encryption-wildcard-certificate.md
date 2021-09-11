@@ -4,7 +4,9 @@ title: 如何申请 Let's Encrypt 泛域名 SSL 证书
 description: 教你如何申请 Let's Encrypt 的免费 SSL 范域名证书
 ---
 
-我们之前在另一文章中讲到 [如何申请 Let's Encrypt 域名证书](/nginx/how-to-use-let's-encryption-certificate.html)，在那篇文章中主要以单域名为例讲解了申请方法。此文将介绍如何使用 acme.sh 工具申请 Let's Encrypt 泛域名证书
+此文将向你介绍如何使用 acme.sh 工具申请 Let's Encrypt 的泛域名证书。如果想了解单域名的证书申请方法，请参考下面这篇文章
+
+- [如何申请 Let's Encrypt 域名证书](/nginx/how-to-use-let's-encryption-certificate.html)
 
 ### 什么是泛域名证书？
 
