@@ -1,14 +1,14 @@
 ---
 layout: post
-title: 如何使用 Let's Encrypt 域名 SSL 证书
-description: 教你如何使用 Let's Encrypt 的免费 SSL 证书给网站启用 https
+title: 如何申请 Let's Encrypt 泛域名 SSL 证书
+description: 教你如何申请 Let's Encrypt 的免费 SSL 范域名证书
 ---
 
-Let's Encrypt 是一个于 2015 年成立的数字证书认证机构，他们主要为网站提供免费的SSL/TLS证书。旨在简化创建和安装证书的流程，使更多的人使用安全的互联网服务。 
+我们之前在另一文章中讲到 [如何申请 Let's Encrypt 域名证书](/nginx/how-to-use-let's-encryption-certificate.html)，在那篇文章中主要以单域名为例讲解了申请方法。此文将介绍如何使用使用 acme.sh 工具申请 Let's Encrypt 范域名证书
 
-### 前期的准备工作
+### 什么是范域名证书？
 
-如果你有一个网站域名，希望使用 https 的安全连接方式进行访问，那么你就需要一个 SSL 证书来实现。本文我们以 Nginx 服务器为例，讲解如何使用 Let's Encryption 的免费 SSL 证书为我们的网站启用 https 服务。这里我们会用到下面这些工具：
+泛域名指的是你的跟域名下的所有子域名，相当于 `*` 星号通配符，例如 `*.example.com`。如果你想给同一根域名下的所有子域名申请证书，就需要申请泛域名证书。接下来我们会用到以下这些工具
 
 - curl、nginx、acme.sh
 
@@ -22,14 +22,14 @@ $ curl  https://get.acme.sh | sh
 
 ### 2. 使用 acme.sh 工具生成证书
 
-这里给单个域名申请域名证书，如果需要申请泛域名证书参考这里 [如何申请 Let's Encryption 泛域名证书](/nginx/how-to-use-let's-encryption-wildcard-certificate.html) 。当然生成证书之前，你需要确保你对你的域名拥有管理权，不然你无法申请成功。
+> 这里给单个域名申请域名证书，当然生成证书之前，你需要确保你对你的域名拥有管理权，不然你无法申请成功。
 
 #### 1. 向 Let's Encryption 发起申请证书请求
 
-使用下面的命令向 Let's Encryption 机构申请注册域名证书，其中 `example.com` 为演示域名，请自行修改为你的真实域名
+使用下面的命令向 Let's Encryption 机构申请注册域名证书，除了用 `-d` 参数指定根域名 `example.com` 之外，还添加了一个 `*.example.com` 范域名，表示同时为 `example.com` 下的所有子域名申请证书。其中 `example.com` 为演示域名，请自行修改为你的真实域名
 
 ```
-$ acme.sh --issue --dns -d example.com --yes-I-know-dns-manual-mode-enough-go-ahead-please
+$ acme.sh --issue --dns -d example.com -d *.example.com --yes-I-know-dns-manual-mode-enough-go-ahead-please
 ```
 
 - `-d` 指定你需要申请证书的网站域名，当然可以使用多个 `-d` 参数指定多个子域名
@@ -46,6 +46,13 @@ $ acme.sh --issue --dns -d example.com --yes-I-know-dns-manual-mode-enough-go-ah
 [Sat Mar 30 19:21:26 CST 2019] Domain: '_acme-challenge.example.com'*
 [Sat Mar 30 19:21:26 CST 2019] TXT value: 'CZ85YjH3FXZtAYjiVYd1nLu48thbI1EnEKe3pdmVDAw'
 [Sat Mar 30 19:21:26 CST 2019] Please be aware that you prepend _acme-challenge. before your domain
+[Sat Mar 30 19:21:24 CST 2019] Single domain='*.example.com'
+[Sat Mar 30 19:21:24 CST 2019] Getting domain auth token for each domain
+[Sat Mar 30 19:21:25 CST 2019] Getting webroot for domain='*.example.com'
+[Sat Mar 30 19:21:26 CST 2019] Add the following TXT record:
+[Sat Mar 30 19:21:26 CST 2019] Domain: '_acme-challenge.example.com'*
+[Sat Mar 30 19:21:26 CST 2019] TXT value: '8FJ8WZtAYjiVYd1JFW923HI1EnEFWUW902309JH3FABn'
+[Sat Mar 30 19:21:26 CST 2019] Please be aware that you prepend _acme-challenge. before your domain
 [Sat Mar 30 19:21:26 CST 2019] so the resulting subdomain will be: _acme-challenge.example.com
 [Sat Mar 30 19:21:26 CST 2019] Please add the TXT records to the domains, and re-run with --renew.
 [Sat Mar 30 19:21:26 CST 2019] Please check log file for more details: /root/.acme.sh/acme.sh.log
@@ -53,7 +60,13 @@ $ acme.sh --issue --dns -d example.com --yes-I-know-dns-manual-mode-enough-go-ah
 
 #### 2. 添加 TXT 域名记录
 
-Let's Encryption 需要验证域名 TXT 记录来确定你对域名的所有权，所以需要将上面红色部分的 `Domain` 和 `TXT value` 添加到域名 DNS 记录里。首先你需要登录到你的域名服务商的 DNS 管理平台，然后增加一个 TXT 文本记录，主机名(Host)为： `_acme-challenge`  值(Value)为： `CZ85YjH3FXZtAYjiVYd1nLu48thbI1EnEKe3pdmVDAw` 即可，因为一般 DNS 需要一定的时间才能生效，所以先吃个瓜等待几分钟，再执行下面的命令开始验证
+Let's Encryption 需要验证域名 TXT 记录来确定你对域名的所有权，所以需要将上面两个域名`example.com` 和 `*.example.com` 的红色部分的 `Domain` 和 `TXT value` 添加到域名 DNS 记录里。首先你需要登录到你的域名服务商的 DNS 管理平台，然后分别添加两条 TXT 记录
+
+- 第 1 条 TXT 记录，主机名(Host)为： `_acme-challenge`  值(Value)为： `CZ85YjH3FXZtAYjiVYd1nLu48thbI1EnEKe3pdmVDAw` 
+
+- 第 2 条 TXT 记录，主机名(Host)为： `_acme-challenge`  值(Value)为： `8FJ8WZtAYjiVYd1JFW923HI1EnEFWUW902309JH3FABn` 
+
+因为一般 DNS 需要一定的时间才能生效，所以还是按照老传统先吃个瓜等待几分钟，再执行下面的命令开始验证
 
 ```
 $ acme.sh --renew --dns -d example.com --yes-I-know-dns-manual-mode-enough-go-ahead-please
@@ -94,4 +107,6 @@ http {
     }
 }
 ```
+
+
 
