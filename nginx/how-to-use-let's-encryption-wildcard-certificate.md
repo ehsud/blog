@@ -4,11 +4,11 @@ title: 如何申请 Let's Encrypt 泛域名 SSL 证书
 description: 教你如何申请 Let's Encrypt 的免费 SSL 范域名证书
 ---
 
-我们之前在另一文章中讲到 [如何申请 Let's Encrypt 域名证书](/nginx/how-to-use-let's-encryption-certificate.html)，在那篇文章中主要以单域名为例讲解了申请方法。此文将介绍如何使用使用 acme.sh 工具申请 Let's Encrypt 范域名证书
+我们之前在另一文章中讲到 [如何申请 Let's Encrypt 域名证书](/nginx/how-to-use-let's-encryption-certificate.html)，在那篇文章中主要以单域名为例讲解了申请方法。此文将介绍如何使用 acme.sh 工具申请 Let's Encrypt 泛域名证书
 
-### 什么是范域名证书？
+### 什么是泛域名证书？
 
-泛域名指的是你的跟域名下的所有子域名，相当于 `*` 星号通配符，例如 `*.example.com`。如果你想给同一根域名下的所有子域名申请证书，就需要申请泛域名证书。接下来我们会用到以下这些工具
+泛域名英文名称 Wildcard Certificates，指的是你的根域名下的所有子域名，相当于 `*` 星号通配符，例如 `*.example.com`。如果你想给同一根域名下的所有子域名申请证书，就需要申请泛域名证书。接下来我们会用到以下这些工具
 
 - curl、nginx、acme.sh
 
@@ -22,17 +22,17 @@ $ curl  https://get.acme.sh | sh
 
 ### 2. 使用 acme.sh 工具生成证书
 
-> 这里给单个域名申请域名证书，当然生成证书之前，你需要确保你对你的域名拥有管理权，不然你无法申请成功。
+当然生成证书之前，你依然需要确保你对你的域名拥有管理权，不然你无法申请成功。
 
 #### 1. 向 Let's Encryption 发起申请证书请求
 
-使用下面的命令向 Let's Encryption 机构申请注册域名证书，除了用 `-d` 参数指定根域名 `example.com` 之外，还添加了一个 `*.example.com` 范域名，表示同时为 `example.com` 下的所有子域名申请证书。其中 `example.com` 为演示域名，请自行修改为你的真实域名
+使用下面的命令向 Let's Encryption 机构申请注册域名证书，除了用 `-d` 参数指定根域名 `example.com` 之外，还添加了一个 `*.example.com` 泛域名，表示同时为 `example.com` 下的所有子域名申请证书。其中 `example.com` 为演示域名，请自行修改为你的真实域名
 
 ```
 $ acme.sh --issue --dns -d example.com -d *.example.com --yes-I-know-dns-manual-mode-enough-go-ahead-please
 ```
 
-- `-d` 指定你需要申请证书的网站域名，当然可以使用多个 `-d` 参数指定多个子域名
+- `-d` 指定你需要申请证书的网站域名，这里指定了根域名和一个 `*.example.com` 泛域名
 - `--dns` 表示使用 DNS 方式验证域名所有权，也就是你必须对你的域名具有管理权限
 - `--yes-I-know-dns-manual-mode-enough-go-ahead-please` 表示以手动操作方式申请域名证书
 
@@ -96,10 +96,10 @@ http {
         server_name  example.com;
         root         /var/www/html;
 		
-		ssl_certificate     /etc/cert/example.crt;
-    	ssl_certificate_key /etc/cert/example.key;
-    	ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
-    	ssl_ciphers         HIGH:!aNULL:!MD5;
+        ssl_certificate     /etc/cert/example.crt;
+        ssl_certificate_key /etc/cert/example.key;
+        ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers         HIGH:!aNULL:!MD5;
     
         location / {
             index    index.html index.htm;
