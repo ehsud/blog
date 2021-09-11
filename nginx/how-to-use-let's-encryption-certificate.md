@@ -22,7 +22,7 @@ $ curl  https://get.acme.sh | sh
 
 ### 2. 使用 acme.sh 工具生成证书
 
-1. 向 Let's Encryption 发起申请证书请求
+#### 1. 向 Let's Encryption 发起申请证书请求
 
 这里给单个域名申请域名证书，当然生成证书之前，你需要确保你对你的域名拥有管理权，不然你无法申请成功。
 
@@ -51,7 +51,7 @@ $ acme.sh --issue --dns -d example.com --yes-I-know-dns-manual-mode-enough-go-ah
 [Sat Mar 30 19:21:26 CST 2019] Please check log file for more details: /root/.acme.sh/acme.sh.log
 ```
 
-2. 添加 TXT 域名记录
+#### 2. 添加 TXT 域名记录
 
 Let's Encryption 需要验证域名 TXT 记录来确定你对域名的所有权，所以需要将上面红色部分的 `Domain` 和 `TXT value` 添加到域名 DNS 记录里。首先你需要登录到你的域名服务商的 DNS 管理平台，然后增加一个 TXT 文本记录，主机名(Host)为： `_acme-challenge`  值(Value)为： `CZ85YjH3FXZtAYjiVYd1nLu48thbI1EnEKe3pdmVDAw` 即可，因为一般 DNS 需要一定的时间才能生效，所以先吃个瓜等待几分钟，再执行下面的命令开始验证
 
