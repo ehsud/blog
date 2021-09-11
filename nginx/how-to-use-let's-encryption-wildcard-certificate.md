@@ -22,6 +22,12 @@ description: 教你如何申请 Let's Encrypt 的免费 SSL 范域名证书
 $ curl  https://get.acme.sh | sh
 ```
 
+截至写此文章的时候，新的 acme.sh 3.0.0 版本已经将默认证书提供商变更为了 ZeroSSL，所以需要使用下面的命令更改默认证书提供商为 Let's Encryption
+
+```
+$ acme.sh --set-default-ca --server letsencrypt
+```
+
 ### 2. 使用 acme.sh 工具生成证书
 
 当然生成证书之前，你依然需要确保你对你的域名拥有管理权，不然你无法申请成功。
