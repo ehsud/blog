@@ -31,7 +31,7 @@ $ curl  https://get.acme.sh | sh
 使用下面的命令向 Let's Encryption 机构申请注册域名证书，除了用 `-d` 参数指定根域名 `example.com` 之外，还添加了一个 `*.example.com` 泛域名，表示同时为 `example.com` 下的所有子域名申请证书。其中 `example.com` 为演示域名，请自行修改为你的真实域名
 
 ```
-$ acme.sh --issue --dns -d example.com -d *.example.com --yes-I-know-dns-manual-mode-enough-go-ahead-please
+$ acme.sh --issue --dns -d example.com -d '*.example.com' --yes-I-know-dns-manual-mode-enough-go-ahead-please
 ```
 
 - `-d` 指定你需要申请证书的网站域名，这里指定了根域名和一个 `*.example.com` 泛域名
@@ -71,7 +71,7 @@ Let's Encryption 需要验证域名 TXT 记录来确定你对域名的所有权�
 因为一般 DNS 需要一定的时间才能生效，所以还是按照老传统先吃个瓜等待几分钟，再执行下面的命令开始验证
 
 ```
-$ acme.sh --renew --dns -d example.com --yes-I-know-dns-manual-mode-enough-go-ahead-please
+$ acme.sh --renew --dns -d example.com -d '*.example.com' --yes-I-know-dns-manual-mode-enough-go-ahead-please
 ```
 
 如果以上命令执行完没有错误提示，并且有显示类似 `Success` 的成功字样，就说明证书已申请成功！接下来就可以开始安装证书。
