@@ -28,9 +28,11 @@ $ acme.sh --set-default-ca --server letsencrypt
 
 ### 2. 使用 acme.sh 工具生成证书
 
-这里给单个域名申请域名证书，如果需要申请泛域名证书参考这里 。当然生成证书之前，你需要确保你对你的域名拥有管理权，不然你无法申请成功。
+这里给单个域名申请域名证书，如果需要申请泛域名证书请参考下面的文章 
 
 - [如何申请 Let's Encryption 泛域名证书](/nginx/how-to-use-let's-encryption-wildcard-certificate.html) 
+
+当然生成证书之前，你需要确保你对你的域名拥有管理权，不然你无法申请成功。
 
 #### 1. 向 Let's Encryption 发起申请证书请求
 
